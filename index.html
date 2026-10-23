@@ -148,6 +148,31 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
 .steps2 .t b{font-size:18px}
 .steps2 .btn.sm{padding:11px 22px;font-size:16px}
 @media(max-width:560px){.hero2:before{width:22%;right:-40px}.hero2:after{right:calc(22% - 14px)}}
+
+/* Pass 2: page headers, soft background, next-up cards, expect cards, gallery */
+main{background-image:radial-gradient(circle at 1px 1px,var(--dots) 1px,transparent 0);background-size:22px 22px}
+:root{--dots:rgba(11,75,181,.07)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--dots:rgba(111,160,255,.08)}}
+:root[data-theme="dark"]{--dots:rgba(111,160,255,.08)}
+.pagehead{position:relative;overflow:hidden;color:#fff;border-radius:14px;margin-bottom:20px;padding:clamp(22px,5vw,36px) clamp(20px,4vw,34px);background:linear-gradient(120deg,var(--navy),#0B4BB5)}
+.pagehead:before{content:"";position:absolute;right:-50px;top:-30px;bottom:-30px;width:18%;background:var(--red);transform:skewX(-14deg);opacity:.92}
+.pagehead h2{position:relative;color:#fff;font-size:clamp(36px,8vw,54px);margin:0 0 4px}
+.pagehead p{position:relative;margin:0;color:#DCE7FF;max-width:52ch;font-size:17px}
+.next{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:16px}
+.next .card{display:flex;gap:14px;align-items:center}
+.next .nm{font-weight:700}.next .sub{color:var(--muted);font-size:14px}
+.expect{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.expect .card{border-top:5px solid var(--blue)}
+.expect .card:nth-child(2){border-top-color:var(--red)}
+.expect h3{margin:0 0 4px}.expect p{margin:0;color:var(--muted)}
+.band{background:var(--navy);color:#fff;border-radius:14px;padding:22px clamp(18px,4vw,30px);margin-top:16px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.band b{font-family:var(--display);font-weight:800;font-size:26px;text-transform:uppercase;display:block}
+.band span{color:#DCE7FF}
+.band .btn{background:#fff;color:var(--navy)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.gal figure{margin:0;border-radius:10px;overflow:hidden;background:var(--soft)}
+.gal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.gal figcaption{padding:8px 10px;font-size:14px;color:var(--muted)}
 </style>
 
 <header class="top">
@@ -159,6 +184,7 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
     <button role="tab" id="t-home" aria-selected="true" data-tab="home">Home</button>
     <button role="tab" id="t-cal" aria-selected="false" data-tab="cal">Schedule</button>
     <button role="tab" id="t-par" aria-selected="false" data-tab="par">Parents</button>
+    <button role="tab" id="t-pho" aria-selected="false" data-tab="pho" hidden>Photos</button>
     <button role="tab" id="t-con" aria-selected="false" data-tab="con">Contact</button>
   </nav>
 </header>
@@ -180,6 +206,10 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
     <div><b>2nd–5th grade</b><span>With 2+ years of experience</span></div>
     <div><b>No fee</b><span>For preseason practice</span></div>
     <div><b>Checked coaches</b><span>USA Wrestling background screening</span></div>
+  </div>
+  <div class="next">
+    <div class="card"><div class="date"><span id="np-m">NOV</span><em id="np-d">9</em></div><div><div class="sub">Next practice</div><div class="nm" id="np-t">Monday, Nov 9 · 4:00–5:15 PM</div><div class="sub">104 S Main St, Stanley</div></div></div>
+    <div class="card"><div class="date" style="background:var(--red)"><span style="color:#fff">DEC</span><em>3</em></div><div><div class="sub">First home event</div><div class="nm">Varsity dual at the high school</div><div class="sub">Free to attend · come cheer</div></div></div>
   </div>
   <div class="card" style="margin-bottom:16px" id="about">
     <h3>Welcome to SWC</h3>
@@ -208,11 +238,11 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
       <li><div class="t"><b>Follow us on Facebook</b><span>Required. Club news and updates are posted here</span></div><a class="btn sm" href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Follow</a></li>
     </ol>
   </div>
+  <div class="band"><div><b>Questions? We are here.</b><span>Message Coach John on Heja. It is the fastest way to reach us.</span></div><button class="btn" data-go="con">Contact us</button></div>
 </section>
 
 <section id="cal" hidden>
-  <h2>Schedule</h2>
-  <p class="lede">Practice is 4:00–5:15 PM on Mondays, Tuesdays and Thursdays at 104 S Main St, Stanley, ND 58784. Meets and tournaments are below.</p>
+  <div class="pagehead"><h2>Schedule</h2><p>Practice is 4:00–5:15 PM on Mondays, Tuesdays and Thursdays at 104 S Main St, Stanley, ND 58784.</p></div>
   <h3 style="margin:0 0 8px">Meets &amp; tournaments</h3>
   <div class="card">
     <div class="meet"><div class="date"><span>DEC</span><em>3</em></div><div class="info"><div class="nm" style="font-weight:700">Varsity dual</div><div class="sub" style="color:var(--muted);font-size:14px">Stanley High School · time to be added · spectators welcome</div></div><span class="pill ok">Free to attend</span></div>
@@ -228,8 +258,12 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
 </section>
 
 <section id="par" hidden>
-  <h2>Parent info</h2>
-  <p class="lede">Everything a new wrestling family needs to know.</p>
+  <div class="pagehead"><h2>Parent info</h2><p>Everything a new wrestling family needs to know, in the order you will need it.</p></div>
+  <div class="expect">
+    <div class="card"><h3>Bring</h3><p>A water bottle, athletic shorts and a t-shirt, and wrestling shoes if you have them. No jewelry.</p></div>
+    <div class="card"><h3>Drop off at 4:00</h3><p>Practice is drop-off only. Make sure a coach knows your wrestler has arrived, then head out.</p></div>
+    <div class="card"><h3>Pick up at 5:15</h3><p>Be on time and keep your phone on. Team news and changes go out on Heja.</p></div>
+  </div>
   <div class="two">
     <div>
             <div class="card">
@@ -272,28 +306,23 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
 </section>
 
 <section id="con" hidden>
-  <h2>Contact us</h2>
-  <p class="lede">Questions about registration or practice? Reach out and we'll get back to you.</p>
+  <div class="pagehead"><h2>Contact us</h2><p>Questions about registration or practice? Reach out and we will get back to you.</p></div>
   <div class="grid">
     <div class="card">
-      <span class="tag">Email</span>
-      <div class="big" style="font-size:17px;word-break:break-all;margin:6px 0 14px">stanleywrestlingclub@gmail.com</div>
-      <a class="btn" href="mailto:stanleywrestlingclub@gmail.com">Email the club</a>
-    </div>
-    <div class="card">
       <span class="tag">Fastest way</span>
-      <div class="big" style="font-size:32px;margin:6px 0 14px">Message us on Heja</div>
-      <a class="btn alt" href="https://heja.io" target="_blank" rel="noopener">Open Heja</a>
+      <div style="font-weight:700;margin:6px 0 4px;font-size:20px">Message us on Heja</div>
+      <p style="margin:0 0 14px;color:var(--muted)">Coach John answers here first. Team code: <b>GR986946</b></p>
+      <a class="btn" href="https://heja.io" target="_blank" rel="noopener">Open Heja</a>
     </div>
     <div class="card">
-      <span class="tag">Team updates</span>
-      <div style="font-weight:700;margin:6px 0 4px;font-size:18px">Join our team on Heja</div>
-      <p style="margin:0 0 14px;color:var(--muted)">Schedules, practice changes and team messages go out here.</p>
-      <a class="btn" href="https://heja.io" target="_blank" rel="noopener">Join on Heja</a>
+      <span class="tag">Club email</span>
+      <div style="font-weight:700;margin:6px 0 4px;font-size:17px;word-break:break-all">stanleywrestlingclub@gmail.com</div>
+      <p style="margin:0 0 14px;color:var(--muted)">For anything that does not fit in a message.</p>
+      <a class="btn alt" href="mailto:stanleywrestlingclub@gmail.com">Email the club</a>
     </div>
     <div class="card">
-      <span class="tag">News &amp; photos</span>
-      <div style="font-weight:700;margin:6px 0 4px;font-size:18px">Follow us on Facebook</div>
+      <span class="tag">News</span>
+      <div style="font-weight:700;margin:6px 0 4px;font-size:20px">Follow on Facebook</div>
       <p style="margin:0 0 14px;color:var(--muted)">Event news, results and club announcements.</p>
       <a class="btn alt" href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Follow on Facebook</a>
     </div>
@@ -305,13 +334,18 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
   </div>
 </section>
 
+<section id="pho" hidden>
+  <div class="pagehead"><h2>Photos</h2><p>Practice, tournaments and the parents who keep the club running.</p></div>
+  <div class="gal" id="gal"></div>
+</section>
+
 </main>
 <footer>Stanley Wrestling Club · Questions? Message Coach John on Heja · <a href="mailto:stanleywrestlingclub@gmail.com" style="color:inherit">stanleywrestlingclub@gmail.com</a><br><a href="https://heja.io" target="_blank" rel="noopener" style="color:inherit">Heja</a> · <a href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener" style="color:inherit">Facebook</a></footer>
 </div>
 
 <script>
 (function(){
-  var tabs=document.querySelectorAll('nav.tabs button'), secs=['home','cal','par','con'];
+  var tabs=document.querySelectorAll('nav.tabs button'), secs=['home','cal','par','con','pho'];
   function show(id){
     secs.forEach(function(x){document.getElementById(x).hidden=(x!==id)});
     tabs.forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===id?'true':'false')});
@@ -334,6 +368,14 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
     else if(days===1)el.innerHTML='<b>1</b><span>day until preseason starts. See you Monday at 4:00 PM</span>';
     else if(days===0)el.innerHTML='<span>Preseason starts today at 4:00 PM</span>';
     else el.innerHTML='<span>Preseason is under way. Practice Mon, Tue, Thu at 4:00 PM</span>';})();
+  (function(){var M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],D=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var list=[];Object.keys(practice).forEach(function(m){practice[m].forEach(function(d){list.push(new Date(2026,m-1,d))})});
+    var t=new Date();t=new Date(t.getFullYear(),t.getMonth(),t.getDate());var nx=list.filter(function(x){return x>=t})[0];
+    if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · 4:00–5:15 PM'}
+    else{document.getElementById('np-t').textContent='See the schedule'}
+  })();
+  var PHOTOS=[]; /* add entries like {src:'photos/practice1.jpg',cap:'Practice night'} */
+  if(PHOTOS.length){document.getElementById('t-pho').hidden=false;document.getElementById('gal').innerHTML=PHOTOS.map(function(p){return '<figure><img loading="lazy" src="'+p.src+'" alt="'+(p.cap||'Stanley Wrestling Club')+'">'+(p.cap?'<figcaption>'+p.cap+'</figcaption>':'')+'</figure>'}).join('')}
   document.getElementById('months').innerHTML=build('November',11,0,30)+build('December',12,2,31);
 })();
 </script>

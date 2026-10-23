@@ -123,6 +123,31 @@ table{min-width:900px}
 td .tg.warn{background:var(--warn-bg);color:var(--warn)}
 .key{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:10px}
 .key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+/* Welcome redesign: big blue hero, red accent, proof strip, larger steps */
+:root{--red:#C8102E;--navy:#0A2A6B}
+.hero2{position:relative;overflow:hidden;color:#fff;border-radius:14px;margin-bottom:16px;padding:clamp(24px,6vw,48px) clamp(20px,5vw,44px);background:linear-gradient(120deg,var(--navy) 0%,#0B4BB5 62%,#1E63D6 100%);min-height:300px;display:flex;flex-direction:column;justify-content:center}
+.hero2:before{content:"";position:absolute;right:-60px;top:-40px;bottom:-40px;width:34%;background:var(--red);transform:skewX(-14deg);opacity:.92}
+.hero2:after{content:"";position:absolute;right:calc(34% - 20px);top:-40px;bottom:-40px;width:14px;background:#fff;transform:skewX(-14deg);opacity:.9}
+.hero2 .in{position:relative;z-index:1;max-width:min(560px,62%)}@media(max-width:560px){.hero2 .in{max-width:100%}}
+.hero2 .kick{font-family:var(--display);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:15px;color:#BFD4FF}
+.hero2 h2{font-family:var(--display);font-weight:800;font-size:clamp(46px,11vw,88px);line-height:.95;text-transform:uppercase;margin:8px 0 14px;color:#fff;text-wrap:balance}
+.hero2 p{font-size:clamp(17px,2.4vw,20px);margin:0 0 22px;color:#E7EEFF;max-width:46ch}
+.hero2 .cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn.big{font-size:19px;padding:15px 28px;background:#fff;color:var(--navy)}
+.btn.ghost{font-size:19px;padding:13px 24px;background:transparent;color:#fff;border:2px solid #fff}
+.count{display:inline-flex;align-items:baseline;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:8px 14px;margin-top:20px;font-weight:700}
+.count b{font-family:var(--display);font-weight:800;font-size:34px;line-height:1}
+.proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:16px}
+.proof div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.proof b{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;color:var(--blue);line-height:1.1}
+.proof span{font-size:14px;color:var(--muted)}
+.welcome{font-size:clamp(18px,2.6vw,22px);line-height:1.45;max-width:58ch;margin:4px 0 0}
+.steps2 li{padding:16px 0}
+.steps2 li:before{width:38px;height:38px;font-size:18px;background:var(--blue);color:var(--blue-ink)}
+.steps2 .t b{font-size:18px}
+.steps2 .btn.sm{padding:11px 22px;font-size:16px}
+@media(max-width:560px){.hero2:before{width:22%;right:-40px}.hero2:after{right:calc(22% - 14px)}}
 </style>
 
 <header class="top">
@@ -141,16 +166,24 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
 <div class="wrap"><main>
 
 <section id="home">
-  <div class="update"><b>Club update</b><span>Preseason practice starts Monday, Nov 9 at 4:00 PM. Registration is open now.</span></div>
-  <div class="hero">
-    <span class="tag" style="color:#8FB2FF">Preseason</span>
-    <h2>Class starts Monday, Nov 9</h2>
-    <p>Mon · Tue · Thu, 4:00–5:15 PM at the SWC Club. For 2nd–5th graders with at least 2 years of wrestling experience. No fee for preseason practice.</p>
-    <button class="btn alt" style="color:#fff;border-color:#fff" data-go="cal">See the schedule</button>
+  <div class="hero2">
+    <div class="in">
+      <span class="kick">Stanley, North Dakota · Youth wrestling</span>
+      <h2>Wrestling starts here.</h2>
+      <p>Never wrestled before? Everyone starts somewhere. Come learn the sport with coaches who care about every kid on the mat.</p>
+      <div class="cta"><a class="btn big" href="https://tally.so/r/OQ1Zdk" target="_blank" rel="noopener">Register your wrestler</a><button class="btn ghost" data-go="cal">See the schedule</button></div>
+      <div class="count" id="count"><span>Preseason starts Monday, Nov 9 at 4:00 PM</span></div>
+    </div>
+  </div>
+  <div class="proof">
+    <div><b>Nov 9</b><span>Preseason starts. Mon, Tue, Thu</span></div>
+    <div><b>2nd–5th grade</b><span>With 2+ years of experience</span></div>
+    <div><b>No fee</b><span>For preseason practice</span></div>
+    <div><b>Checked coaches</b><span>USA Wrestling background screening</span></div>
   </div>
   <div class="card" style="margin-bottom:16px" id="about">
-    <h3>About the club</h3>
-    <p style="margin:6px 0 14px;max-width:62ch">Stanley Wrestling Club (SWC) is a youth wrestling club in Stanley, ND. We teach kids the sport of wrestling in a safe, organized program run by volunteer coaches and parents.</p>
+    <h3>Welcome to SWC</h3>
+    <p class="welcome" style="margin:6px 0 16px">Stanley Wrestling Club is a youth program run by volunteer coaches and parents. We teach kids the sport in a safe, organized room, and we cheer for every one of them.</p>
     <div class="grid">
       <div>
         <span class="tag">Our purpose</span>
@@ -167,7 +200,7 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
     </div>
   </div>
   <div class="card">
-    <h3>Get started in 4 steps</h3>
+    <h3>Ready? Four quick steps</h3>
     <ol class="steps2">
       <li><div class="t"><b>Get USA Wrestling</b><span>Required for every wrestler</span></div><a class="btn sm" href="https://www.usawmembership.com" target="_blank" rel="noopener">Get it</a></li>
       <li><div class="t"><b>Register</b><span>One form per family, up to 4 wrestlers</span></div><a class="btn sm" href="https://tally.so/r/OQ1Zdk" target="_blank" rel="noopener">Register</a></li>
@@ -296,6 +329,11 @@ td .tg.warn{background:var(--warn-bg);color:var(--warn)}
     }
     return '<div class="card"><h3>'+name+' 2026</h3><div class="cal">'+h+'</div></div>';
   }
+  (function(){var el=document.getElementById('count');if(!el)return;var n=new Date(),days=Math.round((new Date(2026,10,9)-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/86400000);
+    if(days>1)el.innerHTML='<b>'+days+'</b><span>days until preseason starts, Monday Nov 9 at 4:00 PM</span>';
+    else if(days===1)el.innerHTML='<b>1</b><span>day until preseason starts. See you Monday at 4:00 PM</span>';
+    else if(days===0)el.innerHTML='<span>Preseason starts today at 4:00 PM</span>';
+    else el.innerHTML='<span>Preseason is under way. Practice Mon, Tue, Thu at 4:00 PM</span>';})();
   document.getElementById('months').innerHTML=build('November',11,0,30)+build('December',12,2,31);
 })();
 </script>

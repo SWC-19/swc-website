@@ -147,11 +147,23 @@ html,body{overflow-x:clip;max-width:100%}
 .hero{background:#0B4BB5}
 .hero:before,.hero:after{display:none}
 .hero h1{display:inline-block;border-bottom:6px solid var(--red);padding-bottom:12px}
-.quick{display:none;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
-.quick a{display:flex;flex-direction:column;justify-content:space-between;gap:8px;min-height:86px;min-width:0;padding:12px;border-radius:12px;text-decoration:none;color:#fff;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:20px;line-height:1}
-.quick a span{font-family:var(--body);font-weight:500;text-transform:none;font-size:13px;color:#DCE7FF;line-height:1.3}
-.quick a:nth-child(1),.quick a:nth-child(2){background:#0B4BB5;border:1px solid rgba(255,255,255,.4)}
-.quick a:nth-child(3),.quick a:nth-child(4){background:#0B1220;border:1px solid rgba(255,255,255,.4)}
+.quick{display:none;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+.quick a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0;min-height:124px;padding:14px 12px 16px 14px;border-radius:14px;text-decoration:none;background:#fff;color:#0B1220;box-shadow:0 6px 18px rgba(4,16,48,.3);transition:transform .12s ease,box-shadow .12s ease}
+.quick a:active{transform:scale(.97)}
+@media(hover:hover){.quick a:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(4,16,48,.38)}}
+.quick a:focus-visible{outline:3px solid #FFD54A;outline-offset:3px}
+.quick .qi{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;margin-bottom:6px;background:#E6EEFB;color:#0B4BB5}
+.quick svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.quick b{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:23px;line-height:1;letter-spacing:.01em}
+.quick .qs{font-family:var(--body);font-weight:500;font-size:14px;line-height:1.3;color:#566075;padding-right:20px}
+.quick .qa{position:absolute;right:10px;bottom:14px;width:20px;height:20px;stroke-width:2.6;color:#0B4BB5}
+.quick .qt{position:absolute;top:12px;right:10px;font:700 11px/1 var(--body);font-style:normal;text-transform:uppercase;letter-spacing:.06em;background:#fff;color:#C8102E;padding:5px 8px;border-radius:999px}
+.quick .q-reg{background:#C8102E;color:#fff}
+.quick .q-reg .qi{background:#fff;color:#C8102E}
+.quick .q-reg .qs{color:#FFE3E7}
+.quick .q-reg .qa{color:#fff}
+.quick .q-pay .qi{background:#DFF3E8;color:#17794A}
+.quick .q-trn .qi{background:#FBEFD3;color:#8A5A00}
 @media(max-width:820px){.quick{display:grid}.hero .cta{display:none}.top nav{flex-wrap:wrap;overflow:visible}}
 .meet{flex-wrap:wrap}.meet .info{flex:1 1 180px;min-width:0}.meet .paybtn{flex:1 1 100%;display:block;text-align:center;white-space:normal;margin-top:6px}.meet .paybtn[aria-disabled="true"]{opacity:.55;cursor:default}
 .pay3 .btn{display:block;text-align:center}.pay3 .btn+.btn{margin-top:8px}
@@ -169,7 +181,7 @@ html,body{overflow-x:clip;max-width:100%}
     <p>Never wrestled before? Everyone starts somewhere. Come learn the sport with coaches who care about every kid on the mat.</p>
     <div class="cta"><a class="btn white" href="https://tally.so/r/YjjzVB" target="_blank" rel="noopener">Register your wrestler</a><a class="btn ghost" href="#schedule">See the schedule</a></div>
     <div class="count" id="count"><span>Preseason starts Monday, Nov 9 at 4:00 PM</span></div>
-    <div class="quick"><a href="https://tally.so/r/YjjzVB" target="_blank" rel="noopener">Register<span>Sign up your wrestler</span></a><a href="#pay">Pay fees<span>Dues and tournaments</span></a><a href="#schedule">Calendar<span>Practice days and times</span></a><a href="#schedule">Tournaments<span>Dates and details</span></a></div>
+    <div class="quick"><a class="q-reg" href="https://tally.so/r/YjjzVB" target="_blank" rel="noopener"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg></span><em class="qt">Start here</em><b>Register</b><span class="qs">Sign up your wrestler</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-pay" href="#pay"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><b>Pay fees</b><span class="qs">Dues and tournaments</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-cal" href="#schedule"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><b>Calendar</b><span class="qs">Practice days and times</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-trn" href="#schedule"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg></span><b>Tournaments</b><span class="qs">Dates and details</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div>
   </div>
   <div class="shots"><img src="photos/site/photo-02.jpg" alt="The SWC team on the mat"><img src="photos/site/photo-08.jpg" alt="Wrestlers in SWC shirts"><img src="photos/site/photo-11.jpg" alt="Club members at an SWC event"></div>
 </div></section>

@@ -102,7 +102,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .calev{list-style:none;margin:10px 0 0;padding:0}
 .calev li{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.35}
 .calev li:first-child{border-top:0;padding-top:0}
-.calev b{flex:none;width:112px}
+.calev b{flex:none;width:96px}
+.calpr b{width:120px}
+.calh{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:19px;letter-spacing:.02em;margin:0 0 6px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+.calev+.calh{margin-top:22px}
+.calh small{font-family:var(--body);font-weight:600;text-transform:none;font-size:13px;color:var(--muted);letter-spacing:0;margin-left:6px}
+.calev .dot{flex:none;width:12px;height:12px;border-radius:3px;margin-top:4px}
+.dot.s{background:#17794A}.dot.d{background:var(--red)}.dot.r{background:#8A5A00}.dot.k{background:#6B3FA0}
 .calev span{color:var(--muted);min-width:0}
 .key{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;margin-top:12px;color:#C7D6F5}.key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .note{font-size:14px;color:var(--muted);margin:10px 0 0}
@@ -252,9 +258,9 @@ html,body{overflow-x:clip;max-width:100%}
     <div class="meet"><div class="date"><span>DEC</span><em>10</em></div><div class="info"><div class="nm" style="font-weight:700">Varsity dual</div><div class="sub" style="color:var(--muted);font-size:14px">Stanley High School · time to be added · spectators welcome</div></div><span class="pill ok">Free to attend</span></div>
     <div class="meet"><div class="date"><span>DEC</span><em>30–31</em></div><div class="info"><div class="nm" style="font-weight:700">Rumble on Red · Fargo</div><div class="sub" style="color:var(--muted);font-size:14px">Two days · $25 per wrestler</div></div><a class="btn alt paybtn" data-pay="rumble" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>FEB</span><em>26</em></div><div class="info"><div class="nm" style="font-weight:700">NDUSA Team North Dakota Qualifier</div><div class="sub" style="color:var(--muted);font-size:14px">Bismarck, ND</div></div><a class="btn alt paybtn" data-pay="qual" href="#pay">Pay $25 per wrestler</a></div>
+    <div class="meet"><div class="date"><span>FEB</span><em>26</em></div><div class="info"><div class="nm" style="font-weight:700">Dakota Rattlers Individuals</div><div class="sub" style="color:var(--muted);font-size:14px">Center, ND</div></div><a class="btn alt paybtn" data-pay="rat" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>FEB</span><em>27</em></div><div class="info"><div class="nm" style="font-weight:700">Bismarck Gorilla Wrestling “The Gorilla”</div><div class="sub" style="color:var(--muted);font-size:14px">Bismarck, ND</div></div><a class="btn alt paybtn" data-pay="gor" href="#pay">Pay $25 per wrestler</a></div>
-    <div class="meet"><div class="date"><span>MAR</span><em>5</em></div><div class="info"><div class="nm" style="font-weight:700">Dakota Rattlers Individuals</div><div class="sub" style="color:var(--muted);font-size:14px">Center, ND</div></div><a class="btn alt paybtn" data-pay="rat" href="#pay">Pay $25 per wrestler</a></div>
-    <div class="meet"><div class="date"><span>MAR</span><em>6</em></div><div class="info"><div class="nm" style="font-weight:700">Dakota Grappler Individuals</div><div class="sub" style="color:var(--muted);font-size:14px">Minot, ND</div></div><a class="btn alt paybtn" data-pay="grap" href="#pay">Pay $25 per wrestler</a></div>
+    <div class="meet"><div class="date"><span>MAR</span><em>6</em></div><div class="info"><div class="nm" style="font-weight:700">Dakota Rattlers Individual Tournament</div><div class="sub" style="color:var(--muted);font-size:14px">Minot, ND</div></div><a class="btn alt paybtn" data-pay="grap" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>MAR</span><em>13–14</em></div><div class="info"><div class="nm" style="font-weight:700">Brodie Gorder Memorial Iron Eagle Tournament</div><div class="sub" style="color:var(--muted);font-size:14px">Sidney High School &amp; Richland County Event Center, Sidney, MT · Team duals Sat Mar 13, individual brackets Sun Mar 14</div></div><a class="btn alt paybtn" data-pay="iron" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>MAR</span><em>26–27</em></div><div class="info"><div class="nm" style="font-weight:700">NDUSA Youth Folkstyle State Duals and Individual Championships</div><div class="sub" style="color:var(--muted);font-size:14px">Hosted by Matpac · Bismarck, ND</div></div><a class="btn alt paybtn" data-pay="state" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>APR</span><em>2–4</em></div><div class="info"><div class="nm" style="font-weight:700">Heartland USA National Duals</div><div class="sub" style="color:var(--muted);font-size:14px">Mid-America Center &amp; Iowa West Field House, Council Bluffs, IA · Weigh-ins Fri Apr 2, team duals Sat–Sun Apr 3–4 · Only for wrestlers who qualified at the NDUSA Team North Dakota Qualifier</div></div><span class="pill ok">No club fee</span></div>
@@ -354,9 +360,9 @@ html,body{overflow-x:clip;max-width:100%}
     {y:2027,m:0,d:4,c:'s',t:'Advanced boys & girls start'},
     {y:2027,m:1,d:2,c:'s',t:'Beginners start'},
     {y:2027,m:1,d:26,c:'r',t:'NDUSA Team North Dakota Qualifier, Bismarck'},
+    {y:2027,m:1,d:26,c:'r',t:'Dakota Rattlers Individuals, Center'},
     {y:2027,m:1,d:27,c:'r',t:'The Gorilla, Bismarck'},
-    {y:2027,m:2,d:5,c:'r',t:'Dakota Rattlers Individuals, Center'},
-    {y:2027,m:2,d:6,c:'r',t:'Dakota Grappler Individuals, Minot'},
+    {y:2027,m:2,d:6,c:'r',t:'Dakota Rattlers Individual Tournament, Minot'},
     {y:2027,m:2,d:13,e:14,c:'r',t:'Iron Eagle Tournament, Sidney, MT'},
     {y:2027,m:2,d:26,e:27,c:'r',t:'NDUSA State Duals and Individuals, Bismarck'}
   ];
@@ -377,9 +383,10 @@ html,body{overflow-x:clip;max-width:100%}
     var h=['S','M','T','W','T','F','S'].map(function(d){return '<div class="h">'+d+'</div>'}).join('');
     for(var i=0;i<start;i++)h+='<div style="background:transparent"></div>';
     for(var d=1;d<=days;d++)h+='<div class="'+(mark[d]||'')+'">'+d+'</div>';
-    var sh=FULL[m].slice(0,3),li=evs.map(function(e){return '<li><b>'+sh+' '+e.d+(e.e?'–'+e.e:'')+'</b><span>'+esc(e.t)+'</span></li>'}).join('');
-    li+=(SCHED[y+'-'+m]||[['Practice','Practice days for '+FULL[m]+' will be added.']]).map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>'}).join('');
-    return '<div class="card calmonth"><div><h3>'+FULL[m]+' '+y+'</h3><div class="cal">'+h+'</div></div><div><h3>This month</h3><ul class="calev">'+li+'</ul></div></div>';
+    var WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],sh=FULL[m].slice(0,3);
+    var li=evs.map(function(e){return '<li><i class="dot '+e.c+'"></i><b>'+WD[new Date(y,m,e.d).getDay()]+(e.e?'–'+WD[new Date(y,m,e.e).getDay()]:'')+', '+sh+' '+e.d+(e.e?'–'+e.e:'')+'</b><span>'+esc(e.t)+'</span></li>'}).join('')||'<li><span>No meets or start dates this month.</span></li>';
+    var pr=SCHED[y+'-'+m],pl=pr?pr.map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>'}).join(''):'<li><span>Practice days for '+FULL[m]+' will be added.</span></li>';
+    return '<div class="card calmonth"><div><h3>'+FULL[m]+' '+y+'</h3><div class="cal">'+h+'</div></div><div><h4 class="calh">Dates to know</h4><ul class="calev">'+li+'</ul><h4 class="calh">Practice times <small>blue days</small></h4><ul class="calev calpr">'+pl+'</ul></div></div>';
   }
   var tabs=document.getElementById('mtabs'),box=document.getElementById('months');
   function show(i){box.innerHTML=monthHTML(CAL_MONTHS[i][0],CAL_MONTHS[i][1]);tabs.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-pressed',j===i?'true':'false')})}

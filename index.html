@@ -385,9 +385,16 @@ html,body{overflow-x:clip;max-width:100%}
   for(var k=0;k<CAL_MONTHS.length;k++){if(new Date(CAL_MONTHS[k][0],CAL_MONTHS[k][1]+1,0)>=today0){cur=k;break}}
   show(cur);
   var M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],D=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  var list=[];Object.keys(practice).forEach(function(m){practice[m].forEach(function(d){list.push(new Date(2026,m-1,d))})});
+  var list=[];Object.keys(PRACTICE).forEach(function(k){var ym=k.split('-');PRACTICE[k].forEach(function(d){list.push(new Date(+ym[0],+ym[1],d))})});list.sort(function(a,b){return a-b});
+  function ptimes(x){
+    if(x.getFullYear()===2026)return '4:00–5:15 PM';
+    var w=x.getDay();
+    if(x.getMonth()===1&&w!==1)return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
+    return 'Girls 4:00–5:15, boys 5:15–6:30 PM';
+  }
   var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),nx=list.filter(function(x){return x>=t})[0];
-  if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · 4:00–5:15 PM'}
+  if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · '+ptimes(nx)}
+  else{document.getElementById('np-m').textContent=M[t.getMonth()];document.getElementById('np-d').textContent='–';document.getElementById('np-t').textContent='Next practice days will be posted soon'}
   var el=document.getElementById('count'),days=Math.round((new Date(2026,10,9)-t)/86400000);
   if(days>1)el.innerHTML='<b>'+days+'</b><span>days until preseason starts, Monday Nov 9 at 4:00 PM</span>';
   else if(days===1)el.innerHTML='<b>1</b><span>day until preseason starts. See you Monday at 4:00 PM</span>';

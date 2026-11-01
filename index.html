@@ -147,7 +147,8 @@ html,body{overflow-x:clip;max-width:100%}
 .hero{background:#0B4BB5}
 .hero:before,.hero:after{display:none}
 .hero h1{display:inline-block;border-bottom:6px solid var(--red);padding-bottom:12px}
-.quick{display:none;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+.hero .cta{display:none}
+.quick{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
 .quick a{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0;min-height:124px;padding:14px 12px 16px 14px;border-radius:14px;text-decoration:none;background:#fff;color:#0B1220;box-shadow:0 6px 18px rgba(4,16,48,.3);transition:transform .12s ease,box-shadow .12s ease}
 .quick a:active{transform:scale(.97)}
 @media(hover:hover){.quick a:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(4,16,48,.38)}}
@@ -164,7 +165,7 @@ html,body{overflow-x:clip;max-width:100%}
 .quick .q-reg .qa{color:#fff}
 .quick .q-pay .qi{background:#DFF3E8;color:#17794A}
 .quick .q-trn .qi{background:#FBEFD3;color:#8A5A00}
-@media(max-width:820px){.quick{display:grid}.hero .cta{display:none}.top nav{flex-wrap:wrap;overflow:visible}}
+@media(max-width:820px){.top nav{flex-wrap:wrap;overflow:visible}}
 .meet{flex-wrap:wrap}.meet .info{flex:1 1 180px;min-width:0}.meet .paybtn{flex:1 1 100%;display:block;text-align:center;white-space:normal;margin-top:6px}.meet .paybtn[aria-disabled="true"]{opacity:.55;cursor:default}
 .pay3 .btn{display:block;text-align:center}.pay3 .btn+.btn{margin-top:8px}
 </style>

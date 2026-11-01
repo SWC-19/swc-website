@@ -102,7 +102,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .calev{list-style:none;margin:10px 0 0;padding:0}
 .calev li{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.35}
 .calev li:first-child{border-top:0;padding-top:0}
-.calev b{flex:none;width:76px}
+.calev b{flex:none;width:112px}
 .calev span{color:var(--muted);min-width:0}
 .key{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;margin-top:12px;color:#C7D6F5}.key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .note{font-size:14px;color:var(--muted);margin:10px 0 0}
@@ -205,8 +205,8 @@ html,body{overflow-x:clip;max-width:100%}
   <h2>When each group starts</h2>
   <div class="seasons">
     <div class="card"><div class="date"><span>NOV</span><em>9</em></div><div><h3>Preseason</h3><p class="when">Monday, Nov 9 · 4:00 PM</p><p>2nd–5th grade with 2+ years of experience. No fee.</p></div></div>
-    <div class="card"><div class="date"><span>JAN</span><em>4</em></div><div><h3>Advanced boys &amp; girls</h3><p class="when">Monday, Jan 4, 2027</p><p>Season starts for advanced wrestlers.</p></div></div>
-    <div class="card"><div class="date red"><span>FEB</span><em>2</em></div><div><h3>Beginners</h3><p class="when">Tuesday, Feb 2, 2027</p><p>New to wrestling? This is where you start.</p></div></div>
+    <div class="card"><div class="date"><span>JAN</span><em>4</em></div><div><h3>Advanced boys &amp; girls</h3><p class="when">Monday, Jan 4, 2027</p><p>Mon, Tue, Thu. Girls 4:00–5:15 PM, boys 5:15–6:30 PM. Times change in February.</p></div></div>
+    <div class="card"><div class="date red"><span>FEB</span><em>2</em></div><div><h3>Beginners</h3><p class="when">Tuesday, Feb 2, 2027</p><p>New to wrestling? This is where you start. Tue and Thu, 4:00–4:45 PM.</p></div></div>
   </div>
 </div></section>
 
@@ -242,7 +242,7 @@ html,body{overflow-x:clip;max-width:100%}
 <section id="schedule" class="band dark"><div class="in">
   <span class="kick">Schedule</span>
   <h2>When and where</h2>
-  <p class="lede">Practice is 4:00–5:15 PM on Mondays, Tuesdays and Thursdays at 104 S Main St, Stanley, ND 58784.</p>
+  <p class="lede">Preseason practice is 4:00–5:15 PM on Mondays, Tuesdays and Thursdays at 104 S Main St, Stanley, ND 58784. January and February practice times for each group are in the calendar below.</p>
   <div class="next">
     <div class="card"><div class="date"><span id="np-m">NOV</span><em id="np-d">9</em></div><div><div class="sub">Next practice</div><div class="nm" id="np-t">Monday, Nov 9 · 4:00–5:15 PM</div><div class="sub">104 S Main St, Stanley</div></div></div>
     <div class="card"><div class="date red"><span>DEC</span><em>3</em></div><div><div class="sub">First home event</div><div class="nm">Varsity dual at the high school</div><div class="sub">Free to attend · come cheer</div></div></div>
@@ -357,18 +357,24 @@ html,body{overflow-x:clip;max-width:100%}
     {y:2027,m:2,d:13,e:14,c:'r',t:'Iron Eagle Tournament, Sidney, MT'},
     {y:2027,m:2,d:26,e:27,c:'r',t:'NDUSA State Duals and Individuals, Bismarck'}
   ];
+  function mtwth(y,m,from){var r=[],n=new Date(y,m+1,0).getDate();for(var d=from;d<=n;d++){var w=new Date(y,m,d).getDay();if(w===1||w===2||w===4)r.push(d)}return r}
+  var PRACTICE={'2026-10':practice[11],'2026-11':practice[12],'2027-0':mtwth(2027,0,4),'2027-1':mtwth(2027,1,1)};
+  var PRE=[['Practice','Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St']];
+  var SCHED={'2026-10':PRE,'2026-11':PRE,
+    '2027-0':[['Advanced girls','Mon, Tue, Thu · 4:00–5:15 PM'],['Advanced boys','Mon, Tue, Thu · 5:15–6:30 PM']],
+    '2027-1':[['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 2)'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']]};
   var FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
   function monthHTML(y,m){
     var days=new Date(y,m+1,0).getDate(),start=new Date(y,m,1).getDay(),mark={},rank={s:4,r:3,d:2,p:1};
-    (practice[m+1]&&y===2026?practice[m+1]:[]).forEach(function(d){mark[d]='p'});
+    (PRACTICE[y+'-'+m]||[]).forEach(function(d){mark[d]='p'});
     var evs=EVENTS.filter(function(e){return e.y===y&&e.m===m});
     evs.forEach(function(e){for(var d=e.d;d<=(e.e||e.d);d++){if(!mark[d]||rank[e.c]>rank[mark[d]])mark[d]=e.c}});
     var h=['S','M','T','W','T','F','S'].map(function(d){return '<div class="h">'+d+'</div>'}).join('');
     for(var i=0;i<start;i++)h+='<div style="background:transparent"></div>';
     for(var d=1;d<=days;d++)h+='<div class="'+(mark[d]||'')+'">'+d+'</div>';
     var sh=FULL[m].slice(0,3),li=evs.map(function(e){return '<li><b>'+sh+' '+e.d+(e.e?'–'+e.e:'')+'</b><span>'+esc(e.t)+'</span></li>'}).join('');
-    li+=(y===2026&&practice[m+1])?'<li><b>Practice</b><span>Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St</span></li>':'<li><b>Practice</b><span>Practice days for '+FULL[m]+' will be added.</span></li>';
+    li+=(SCHED[y+'-'+m]||[['Practice','Practice days for '+FULL[m]+' will be added.']]).map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>'}).join('');
     return '<div class="card calmonth"><div><h3>'+FULL[m]+' '+y+'</h3><div class="cal">'+h+'</div></div><div><h3>This month</h3><ul class="calev">'+li+'</ul></div></div>';
   }
   var tabs=document.getElementById('mtabs'),box=document.getElementById('months');

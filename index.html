@@ -92,7 +92,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .cal div{aspect-ratio:1/.8;border-radius:6px;display:flex;align-items:flex-start;padding:5px 6px;font-size:13px;background:var(--bg);color:var(--muted);font-variant-numeric:tabular-nums}
 .cal .h{background:transparent;aspect-ratio:auto;font-size:11px;font-weight:700;text-transform:uppercase;padding:0}
 .cal .p{background:var(--blue);color:var(--blue-ink);font-weight:700}.cal .d{background:var(--red);color:#fff;font-weight:700}.cal .r{background:#8A5A00;color:#fff;font-weight:700}
-.cal .s{background:#17794A;color:#fff;font-weight:700}
+.cal .s{background:#17794A;color:#fff;font-weight:700}.cal .k{background:#6B3FA0;color:#fff;font-weight:700}
 .mtabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
 .mtabs button{font:700 16px var(--body);min-height:44px;padding:8px 18px;border-radius:999px;border:2px solid rgba(255,255,255,.5);background:transparent;color:#fff;cursor:pointer}
 .mtabs button[aria-pressed="true"]{background:#fff;color:var(--navy);border-color:#fff}
@@ -242,7 +242,7 @@ html,body{overflow-x:clip;max-width:100%}
 <section id="schedule" class="band dark"><div class="in">
   <span class="kick">Schedule</span>
   <h2>When and where</h2>
-  <p class="lede">Preseason practice is 4:00–5:15 PM on Mondays, Tuesdays and Thursdays at 104 S Main St, Stanley, ND 58784. January and February practice times for each group are in the calendar below.</p>
+  <p class="lede">Preseason practice is 4:00–5:15 PM on Mondays, Tuesdays and Thursdays at 104 S Main St, Stanley, ND 58784. January through March practice times for each group are in the calendar below.</p>
   <div class="next">
     <div class="card"><div class="date"><span id="np-m">NOV</span><em id="np-d">9</em></div><div><div class="sub">Next practice</div><div class="nm" id="np-t">Monday, Nov 9 · 4:00–5:15 PM</div><div class="sub">104 S Main St, Stanley</div></div></div>
     <div class="card"><div class="date red"><span>DEC</span><em>3</em></div><div><div class="sub">First home event</div><div class="nm">Varsity dual at the high school</div><div class="sub">Free to attend · come cheer</div></div></div>
@@ -343,8 +343,11 @@ html,body{overflow-x:clip;max-width:100%}
 (function(){
   var practice={11:[9,10,12,16,17,19,23,24,30],12:[1,7,8,14,15,17,21,22,28]};
   var CAL_MONTHS=[[2026,10],[2026,11],[2027,0],[2027,1],[2027,2]];
+  // Calendar events. The countdown at the top of the page counts down to the next one.
+  // m is the month number minus 1 (Jan=0 ... Dec=11). e is the last day for events that run more than one day.
+  // c is the color: s = season starts, d = varsity dual, r = tournament, k = deadline.
   var EVENTS=[
-    {y:2026,m:10,d:9,c:'s',t:'Preseason starts, 4:00 PM'},
+    {y:2026,m:10,d:9,c:'s',t:'Preseason starts at 4:00 PM'},
     {y:2026,m:11,d:3,c:'d',t:'Varsity dual at the high school'},
     {y:2026,m:11,d:10,c:'d',t:'Varsity dual at the high school'},
     {y:2026,m:11,d:30,e:31,c:'r',t:'Rumble on Red, Fargo'},
@@ -358,15 +361,16 @@ html,body{overflow-x:clip;max-width:100%}
     {y:2027,m:2,d:26,e:27,c:'r',t:'NDUSA State Duals and Individuals, Bismarck'}
   ];
   function mtwth(y,m,from){var r=[],n=new Date(y,m+1,0).getDate();for(var d=from;d<=n;d++){var w=new Date(y,m,d).getDay();if(w===1||w===2||w===4)r.push(d)}return r}
-  var PRACTICE={'2026-10':practice[11],'2026-11':practice[12],'2027-0':mtwth(2027,0,4),'2027-1':mtwth(2027,1,1)};
+  var PRACTICE={'2026-10':practice[11],'2026-11':practice[12],'2027-0':mtwth(2027,0,4),'2027-1':mtwth(2027,1,1),'2027-2':mtwth(2027,2,1)};
   var PRE=[['Practice','Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St']];
   var SCHED={'2026-10':PRE,'2026-11':PRE,
     '2027-0':[['Advanced girls','Mon, Tue, Thu · 4:00–5:15 PM'],['Advanced boys','Mon, Tue, Thu · 5:15–6:30 PM']],
-    '2027-1':[['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 2)'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']]};
+    '2027-1':[['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 2)'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']],
+    '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']]};
   var FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
   function monthHTML(y,m){
-    var days=new Date(y,m+1,0).getDate(),start=new Date(y,m,1).getDay(),mark={},rank={s:4,r:3,d:2,p:1};
+    var days=new Date(y,m+1,0).getDate(),start=new Date(y,m,1).getDay(),mark={},rank={k:5,s:4,r:3,d:2,p:1};
     (PRACTICE[y+'-'+m]||[]).forEach(function(d){mark[d]='p'});
     var evs=EVENTS.filter(function(e){return e.y===y&&e.m===m});
     evs.forEach(function(e){for(var d=e.d;d<=(e.e||e.d);d++){if(!mark[d]||rank[e.c]>rank[mark[d]])mark[d]=e.c}});
@@ -389,17 +393,19 @@ html,body{overflow-x:clip;max-width:100%}
   function ptimes(x){
     if(x.getFullYear()===2026)return '4:00–5:15 PM';
     var w=x.getDay();
-    if(x.getMonth()===1&&w!==1)return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
+    if((x.getMonth()===1||x.getMonth()===2)&&w!==1)return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
     return 'Girls 4:00–5:15, boys 5:15–6:30 PM';
   }
   var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),nx=list.filter(function(x){return x>=t})[0];
   if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · '+ptimes(nx)}
   else{document.getElementById('np-m').textContent=M[t.getMonth()];document.getElementById('np-d').textContent='–';document.getElementById('np-t').textContent='Next practice days will be posted soon'}
-  var el=document.getElementById('count'),days=Math.round((new Date(2026,10,9)-t)/86400000);
-  if(days>1)el.innerHTML='<b>'+days+'</b><span>days until preseason starts, Monday Nov 9 at 4:00 PM</span>';
-  else if(days===1)el.innerHTML='<b>1</b><span>day until preseason starts. See you Monday at 4:00 PM</span>';
-  else if(days===0)el.innerHTML='<span>Preseason starts today at 4:00 PM</span>';
-  else el.innerHTML='<span>Preseason is under way. Practice Mon, Tue, Thu at 4:00 PM</span>';
+  var el=document.getElementById('count'),up=EVENTS.map(function(e){return {e:e,a:new Date(e.y,e.m,e.d),z:new Date(e.y,e.m,e.e||e.d)}}).filter(function(x){return x.z>=t}).sort(function(p,q){return p.a-q.a})[0];
+  if(up){
+    var cd=Math.round((up.a-t)/86400000),when=D[up.a.getDay()]+', '+MN[up.a.getMonth()]+' '+up.e.d+(up.e.e?'–'+up.e.e:'');
+    if(cd>1)el.innerHTML='<b>'+cd+'</b><span>days until '+esc(up.e.t)+' · '+when+'</span>';
+    else if(cd===1)el.innerHTML='<b>1</b><span>day until '+esc(up.e.t)+' · tomorrow</span>';
+    else el.innerHTML='<span>Today: '+esc(up.e.t)+'</span>';
+  }else el.innerHTML='<span>See the season calendar below for what is next</span>';
 })();
 </script><script>
 (function(){var PAY_LINKS={rumble:'',qual:'',gor:'',rat:'',grap:'',iron:'',state:''};

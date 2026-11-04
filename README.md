@@ -71,7 +71,7 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 
 ## Changing dates (calendar, countdown, next practice)
 All three read from the script near the bottom of `index.html`:
-- `EVENTS`: season starts, duals, tournaments and deadlines. The season calendar shows them, and the countdown at the top of the page counts down to the next one. Colors: `s` season starts (green), `d` varsity dual (red), `r` tournament (gold), `k` deadline (purple). Months are numbered from 0 (Jan = 0, Dec = 11). Use `e` for the last day of a multi-day event.
+- `EVENTS`: season starts, duals, tournaments and deadlines. The season calendar shows them, and the countdown at the top of the page counts down to the next one. Colors: `s` season starts (green), `d` varsity dual (red), `r` tournament (black), `k` deadline (purple). Months are numbered from 0 (Jan = 0, Dec = 11). Use `e` for the last day of a multi-day event.
 - `PRACTICE`: which days are practice days (blue on the calendar). Nov and Dec are listed by hand; Jan-Mar are every Mon/Tue/Thu.
 - `SCHED`: the practice times listed under each month.
 - `CAL_MONTHS`: which months have a button above the calendar (now Nov-Feb; add `[2027,2]` to bring March back).

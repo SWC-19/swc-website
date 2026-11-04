@@ -91,7 +91,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-top:10px}
 .cal div{aspect-ratio:1/.8;border-radius:6px;display:flex;align-items:flex-start;padding:5px 6px;font-size:13px;background:var(--bg);color:var(--muted);font-variant-numeric:tabular-nums}
 .cal .h{background:transparent;aspect-ratio:auto;font-size:11px;font-weight:700;text-transform:uppercase;padding:0}
-.cal .p{background:var(--blue);color:var(--blue-ink);font-weight:700}.cal .d{background:var(--red);color:#fff;font-weight:700}.cal .r{background:#8A5A00;color:#fff;font-weight:700}
+.cal .p{background:var(--blue);color:var(--blue-ink);font-weight:700}.cal .d{background:var(--red);color:#fff;font-weight:700}.cal .r{background:var(--ink-dark);color:#fff;font-weight:700}
 .cal .s{background:#17794A;color:#fff;font-weight:700}.cal .k{background:#6B3FA0;color:#fff;font-weight:700}
 .mtabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
 .mtabs button{font:700 16px var(--body);min-height:44px;padding:8px 18px;border-radius:999px;border:2px solid rgba(255,255,255,.5);background:transparent;color:#fff;cursor:pointer}
@@ -108,7 +108,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .calev+.calh{margin-top:22px}
 .calh small{font-family:var(--body);font-weight:600;text-transform:none;font-size:13px;color:var(--muted);letter-spacing:0;margin-left:6px}
 .calev .dot{flex:none;width:12px;height:12px;border-radius:3px;margin-top:4px}
-.dot.s{background:#17794A}.dot.d{background:var(--red)}.dot.r{background:#8A5A00}.dot.k{background:#6B3FA0}
+.dot.s{background:#17794A}.dot.d{background:var(--red)}.dot.r{background:var(--ink-dark)}.dot.k{background:#6B3FA0}
 .calev span{color:var(--muted);min-width:0}
 .key{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;margin-top:12px;color:#C7D6F5}.key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .note{font-size:14px;color:var(--muted);margin:10px 0 0}
@@ -279,7 +279,7 @@ html,body{overflow-x:clip;max-width:100%}
   <h3 style="color:#fff;margin:26px 0 10px">Season calendar</h3>
   <div class="mtabs" id="mtabs" role="group" aria-label="Choose a month"></div>
   <div id="months" aria-live="polite"></div>
-  <div class="key"><span><i style="background:#17794A"></i>Season starts</span><span><i style="background:var(--blue)"></i>Practice</span><span><i style="background:var(--red)"></i>Varsity duals at the high school</span><span><i style="background:#8A5A00;border:1px solid #D9A441"></i>Tournament</span></div>
+  <div class="key"><span><i style="background:#17794A"></i>Season starts</span><span><i style="background:var(--blue)"></i>Practice</span><span><i style="background:var(--red)"></i>Varsity duals at the high school</span><span><i style="background:var(--ink-dark);border:1px solid #fff"></i>Tournament</span></div>
 </div></section>
 
 <section id="pay" class="band alt"><div class="in">

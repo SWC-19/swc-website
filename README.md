@@ -20,6 +20,7 @@ Live at https://swc-19.github.io/swc-website/
 - **Tournament payments:** Tally form https://tally.so/r/YjP8xB ("Tournament Entries 2026-27"). $25 per wrestler per tournament; families tick tournaments for up to 4 wrestlers and pay once. Families pay first, then sign up for each tournament on Heja. The thank-you screen tells them to take a screenshot as their record. The site has one "Pay tournament entries" button above the meets list that points here; each paid tournament in the list just shows a "$25 entry" tag. When a tournament is added or removed, change it in the form too.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub
+- **Coaches:** John Batteiger (head coach), Jake Carpenter, Matt Ruland, Dusty Fladeland, Chandler Meiers, Rocky Fladeland, Jay Sorenson. Headshots in `photos/coaches/` were cut from the team photo (`photos/site/photo-28.jpg`); swap in sharper photos with the same file names any time.
 - **Club email:** stanleywrestlingclub@gmail.com
 - **Practice location:** 104 S Main St, Stanley, ND 58784. Practice is drop-off only.
 

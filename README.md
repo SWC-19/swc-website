@@ -1,25 +1,67 @@
 # Stanley Wrestling Club website
 
 Public website for the Stanley Wrestling Club (SWC), Stanley, ND.
+Live at https://swc-19.github.io/swc-website/
 
 ## How it works
-- The whole site is one file, `index.html`. It has four tabs: Home, Schedule, Parents and Contact.
-- It is hosted free with GitHub Pages from the `main` branch.
+- The whole site is one long page in one file, `index.html`. Photos are in `photos/site/`.
+- Sections, top to bottom: hero with countdown and four quick boxes (Register, Pay fees, Calendar, Tournaments), Season dates, About the club, Get started (four steps), Schedule (next practice, meets and tournaments, season calendar), Pay, Parents, Photos, Donate/sponsor, Contact.
+- It is hosted free with GitHub Pages from the `main` branch. Changes go live about a minute after they reach `main`.
 - There is no server and no database. Nothing about families is stored here.
 
+## How we make changes
+- Make each change on a branch, check it at phone and computer sizes, then merge it into `main`. No need to ask first.
+- After it is live, show a preview and say in plain words what changed.
+- If something you are told is unclear (a date, a name, a place), ask instead of guessing.
+
 ## Where things live
-- **Registration:** a Tally form (https://tally.so/r/OQ1Zdk). Each family fills it out and the waiver is signed on the form. Submissions are viewed in the Tally account, not on this site.
+- **Registration:** Tally form https://tally.so/r/YjjzVB (one form per family, up to 4 wrestlers; the waiver is signed on the form). Every Register button on the site points here. Submissions are viewed in the Tally account, not on this site.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub
 - **Club email:** stanleywrestlingclub@gmail.com
+- **Practice location:** 104 S Main St, Stanley, ND 58784. Practice is drop-off only.
 
-## Club facts used on the site
-- Preseason starts Monday Nov 9, practice Mon/Tue/Thu 4:00-5:15 PM at 104 S Main St, Stanley, ND 58784.
-- Preseason is for 2nd-5th graders with at least 2 years of experience, no fee. USA Wrestling membership is required.
-- Practice is drop-off only. Varsity duals Dec 3 and Dec 10. Rumble on Red in Fargo Dec 30-31.
+## Season dates
+- **Preseason:** starts Mon Nov 9, 2026. Mon/Tue/Thu 4:00-5:15 PM. 2nd-5th grade with 2+ years of experience. No fee. USA Wrestling membership required.
+- **Advanced boys and girls:** start Mon Jan 4, 2027.
+- **Beginners:** start Tue Feb 2, 2027.
 
-## Not built yet
-Online payments (Square), a volunteer sign-up page and an admin roster page. These were designed in a mock-up and need fee amounts and a club payment account first.
+## Practice times
+| Month | Group | Days and times |
+|---|---|---|
+| Nov-Dec 2026 | Preseason | Mon, Tue, Thu 4:00-5:15 PM (dates listed by hand; no practice Nov 26, Dec 3 and Dec 10 (dual nights), Dec 24, 29, 31) |
+| Jan 2027 | Advanced girls | Mon, Tue, Thu 4:00-5:15 PM |
+| Jan 2027 | Advanced boys | Mon, Tue, Thu 5:15-6:30 PM |
+| Feb-Mar 2027 | Beginners | Tue, Thu 4:00-4:45 PM (from Feb 2) |
+| Feb-Mar 2027 | Advanced girls | Mon 4:00-5:15 PM; Tue, Thu 4:45-6:00 PM |
+| Feb-Mar 2027 | Advanced boys | Mon 5:15-6:30 PM; Tue, Thu 6:00-7:15 PM |
 
-## Changing the site
-Edit `index.html` (dates are in the calendar script near the bottom, and the text is plain HTML). Changes go live about a minute after they are saved to `main`.
+Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a practice day. No days off have been given yet.
+
+## Meets and tournaments
+- Dec 3 and Dec 10: Varsity duals at Stanley High School (free to attend)
+- Dec 30-31: Rumble on Red, Fargo ($25 per wrestler)
+- Fri Feb 26: NDUSA Team North Dakota Qualifier, Bismarck
+- Fri Feb 26: Dakota Rattlers Individuals, Center
+- Sat Feb 27: Bismarck Gorilla Wrestling "The Gorilla", Bismarck
+- Sat Mar 6: Dakota Rattlers Individual Tournament, Minot
+- Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT
+- Mar 26-27: NDUSA Youth Folkstyle State Duals and Individual Championships, Bismarck
+- Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (qualifiers only)
+- Apr 9-11: Black Hills Nationals (AAU card required; families register and pay on their own)
+
+## Changing dates (calendar, countdown, next practice)
+All three read from the script near the bottom of `index.html`:
+- `EVENTS`: season starts, duals, tournaments and deadlines. The season calendar shows them, and the countdown at the top of the page counts down to the next one. Colors: `s` season starts (green), `d` varsity dual (red), `r` tournament (gold), `k` deadline (purple). Months are numbered from 0 (Jan = 0, Dec = 11). Use `e` for the last day of a multi-day event.
+- `PRACTICE`: which days are practice days (blue on the calendar). Nov and Dec are listed by hand; Jan-Mar are every Mon/Tue/Thu.
+- `SCHED`: the practice times listed under each month.
+- `CAL_MONTHS`: which months have a button above the calendar (now Nov-Mar).
+- The "Next practice" card follows `PRACTICE`; its times come from the `ptimes` function.
+
+The meets list in the Schedule section is plain HTML. When a tournament changes, update it there and in `EVENTS`.
+
+## Still to do
+- Practice schedule after March, and any days off (holidays, tournament weekends).
+- Online payments: the tournament Pay buttons say "coming soon" until links are added to `PAY_LINKS` at the very bottom of `index.html`. Dues amount is still "to be announced".
+- Parents section still says "Pick up at 5:15". That fits preseason only; Jan-Mar pick-up times differ by group.
+- Not built yet: volunteer sign-up page and admin roster page. These need fee amounts and a club payment account first.

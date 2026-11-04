@@ -64,7 +64,7 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 - Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT (Sat team duals no fee; Sun individual $25)
 - Tioga Tournament, Tioga, ND: date to be announced (between Mar 15 and Mar 25). Not on the calendar until it has a date.
 - Mar 26-27: NDUSA Youth Folkstyle State Duals and Individual Championships, Bismarck
-- Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (qualifiers only)
+- Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (qualifiers only). Weigh-ins Fri Apr 2; duals Sat-Sun Apr 3-4. Mid-America Center: Elementary, Middle School, Girls 1st-8th. Iowa West Field House: High School boys and girls.
 - Apr 9-11: Black Hills Nationals, James Kjerstad Event Center, 915 E. Centre Street, Rapid City, SD. Fri Apr 9 weigh-ins 12U and under; Sat Apr 10 free clinic and competition 12U and under; Sun Apr 11 weigh-ins and competition 14U and up (times TBA). AAU card required; families register and pay on their own.
 
 ## Changing dates (calendar, countdown, next practice)

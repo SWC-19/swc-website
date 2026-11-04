@@ -24,6 +24,9 @@ Live at https://swc-19.github.io/swc-website/
   - Dues: https://docs.google.com/spreadsheets/d/15ZdCh1_cZIWhHslqbluRfN-WqeypcLbM_hNiITNAk4w/edit (January, February, March tabs)
   - Each tab lists the kids who paid, A-Z by last name, with parent, date paid and receipt number. The tabs read from "Sheet1" (grey tab), where Tally puts the raw rows. Don't edit or rename Sheet1. Hidden cell H1 on each tab is the tournament or month number on the form.
   - Tournament tabs also show each kid's USA Wrestling # and TrackWrestling #, looked up by name from the registration sheet (https://docs.google.com/spreadsheets/d/1SrZF5iHKCkA1_b4dLDNJKtOyVwTmrrroLOCKp1i6xBk/edit, "Wrestlers" tab) through a hidden "Roster" tab. "Not found - check name" means the name on the payment form doesn't match registration.
+  - Tournament tabs also show birthday, grade, boy/girl and weight (from registration), and a "Heja check" box (columns N-T): paste the Heja sign-up names in the yellow column and it lists who signed up but hasn't paid (with parent and phone) and who paid but isn't on Heja. Hidden cell M1 on each tab is the tournament number. Hidden "Weights" tab imports the registration master sheet.
+  - Tournament sheet "Totals" tab: wrestlers paid and $ per tournament.
+  - Dues sheet "Still owes" tab: every 5th-6th grade wrestler from registration with a month not paid (NOT PAID, balance owed from registration, or fee assistance), with parent and phone. Coach families show no dues; beginners skip January. Hidden "Reg" tab imports the registration master sheet. Dues "Totals" tab: wrestlers and $ per month from the Pay Dues form.
   - If a tournament is added to the form, Tally adds new columns to Sheet1 and the tournament tabs need updating.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub

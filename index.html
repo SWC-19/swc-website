@@ -65,7 +65,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .why p{font-size:20px;margin:0 0 14px;max-width:52ch}
 .why .pics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .why .pics img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}
-.why .pics img:first-child{grid-row:span 2;aspect-ratio:auto;height:100%}
+.why .pics img:first-child{grid-column:1/3;aspect-ratio:4/3}
 .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:26px}
 .pillar{border-top:4px solid var(--blue);padding-top:10px}.pillar:nth-child(2){border-color:var(--red)}
 .pillar p{font-size:16px;color:var(--muted);margin:0}
@@ -127,7 +127,7 @@ details.faq summary{font-weight:700;cursor:pointer}details.faq p{margin:8px 0 0;
 .gal{columns:3 220px;column-gap:10px}
 .gal figure{margin:0 0 10px;break-inside:avoid;border-radius:10px;overflow:hidden;background:var(--soft);position:relative}
 .gal img{display:block;width:100%;height:auto}
-.galrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:0 0 10px}.galrow figure{margin:0;border-radius:10px;overflow:hidden;position:relative;background:var(--soft)}.galrow img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.galfeat{margin:0 0 10px;border-radius:10px;overflow:hidden;position:relative}.galfeat img{display:block;width:100%;height:auto}.galrow figcaption,.galfeat figcaption,.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;color:#fff;font-weight:700;font-size:14px;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px}.strip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;display:block}@media(max-width:600px){.strip{grid-template-columns:repeat(2,1fr)}}.shots img,.why .pics img,.strip img,#photos img{cursor:zoom-in}.lb{position:fixed;inset:0;z-index:100;background:rgba(5,10,20,.98);display:none;align-items:center;justify-content:center;flex-direction:column;padding:56px 12px 20px}.lb.on{display:flex}.lb img{max-width:100%;max-height:calc(100vh - 140px);object-fit:contain;border-radius:8px;cursor:default}.lb p{color:#fff;margin:12px 0 0;font-weight:700;text-align:center}.lb small{color:#B8C4DC;font-weight:600;margin-left:8px}.lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:99px;width:48px;height:48px;font-size:26px;line-height:1;cursor:pointer}.lb button:hover{background:rgba(255,255,255,.26)}.lb .x{top:10px;right:12px}.lb .pv{left:12px;top:50%;transform:translateY(-50%)}.lb .nx{right:12px;top:50%;transform:translateY(-50%)}@media(max-width:600px){.lb .pv,.lb .nx{top:auto;bottom:14px;transform:none}}.galrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:0 0 10px}.galrow figure{margin:0;border-radius:10px;overflow:hidden;position:relative;background:var(--soft)}.galrow img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.galfeat{margin:0 0 10px;border-radius:10px;overflow:hidden;position:relative}.galfeat img{display:block;width:100%;height:auto}.galrow figcaption,.galfeat figcaption,.gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;color:#fff;font-weight:700;font-size:14px;background:linear-gradient(transparent,rgba(0,0,0,.65))}
 /* contact */
 .cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .av{width:64px;height:64px;border-radius:50%;background:var(--soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:26px;margin-bottom:8px}
@@ -203,7 +203,7 @@ html,body{overflow-x:clip;max-width:100%}
     <div class="count" id="count"><span>Preseason starts Monday, Nov 9 at 4:00 PM</span></div>
     <div class="quick"><a class="q-reg" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg></span><em class="qt">Start here</em><b>Register</b><span class="qs">Sign up your wrestler</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-pay" href="#pay"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><b>Pay fees</b><span class="qs">Dues and tournaments</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-cal" href="#schedule"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><b>Calendar</b><span class="qs">Practice days and times</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-trn" href="#schedule"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg></span><b>Tournaments</b><span class="qs">Dates and details</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div>
   </div>
-  <div class="shots"><img src="photos/site/photo-02.jpg" alt="The SWC team on the mat"><img src="photos/site/photo-08.jpg" alt="Wrestlers in SWC shirts"><img src="photos/site/photo-11.jpg" alt="Club members at an SWC event"></div>
+  <div class="shots"><img src="photos/site/photo-28.jpg" alt="SWC wrestlers and coaches together on the tournament floor"><img src="photos/site/photo-29.jpg" alt="SWC girls wrestlers and coaches on the mat"><img src="photos/site/photo-30.jpg" alt="SWC girls wrestlers in their stance, smiling"></div>
 </div></section>
 
 <section id="seasons" class="band seasonband"><div class="in">
@@ -224,7 +224,7 @@ html,body{overflow-x:clip;max-width:100%}
       <p>Stanley Wrestling Club is a youth program run by volunteer coaches and parents. We teach kids the sport in a safe, organized room, build confidence and discipline, and make sure everyone feels part of the team, whatever their experience level.</p>
       <p>Practice is drop-off only: drop your wrestler off 5 minutes before their session starts and pick them up at the end.</p>
     </div>
-    <div class="pics"><img src="photos/site/photo-01.jpg" alt="SWC wrestlers on the bench"><img src="photos/site/photo-13.jpg" alt="Kids in SWC shirts at a club event"><img src="photos/site/photo-15.jpg" alt="Volunteers serving at a club event"></div>
+    <div class="pics"><img src="photos/site/photo-31.jpg" alt="SWC team in white singlets with coaches in Sidney, MT"><img src="photos/site/photo-13.jpg" alt="Kids in SWC shirts at a club event"><img src="photos/site/photo-01.jpg" alt="SWC wrestlers on the bench"></div>
   </div>
   <div class="pillars">
     <div class="pillar"><h3>Learn the sport</h3><p>Technique, drilling and live wrestling, paced for each age group.</p></div>
@@ -253,6 +253,7 @@ html,body{overflow-x:clip;max-width:100%}
     <div class="card"><div class="date"><span id="np-m">NOV</span><em id="np-d">9</em></div><div><div class="sub">Next practice</div><div class="nm" id="np-t">Monday, Nov 9 · 4:00–5:15 PM</div><div class="sub">104 S Main St, Stanley</div></div></div>
     <div class="card"><div class="date red"><span>DEC</span><em>3</em></div><div><div class="sub">First home event</div><div class="nm">Varsity dual at the high school</div><div class="sub">Come support the high school team</div></div></div>
   </div>
+<div class="strip"><img src="photos/site/photo-06.jpg" alt="SWC wrestlers on the podium" loading="lazy"><img src="photos/site/photo-22.jpg" alt="SWC at a tournament" loading="lazy"><img src="photos/site/photo-25.jpg" alt="SWC wrestler holding a trophy" loading="lazy"><img src="photos/site/photo-05.jpg" alt="SWC wrestlers on the podium with medals" loading="lazy"></div>
   <h3 id="meets" style="color:#fff;margin:0 0 10px;scroll-margin-top:175px">Meets &amp; tournaments</h3>
   <div class="card paytourn"><div><b>Tournament entries: $25 per wrestler</b><br><span style="color:var(--muted);font-size:14px">Pay first, for all your wrestlers and tournaments in one place. Then sign up for each tournament on Heja. Tournaments marked “$25 entry” are on the form.</span></div><a class="btn" href="https://tally.so/r/YjP8xB" target="_blank" rel="noopener">Pay tournament entries</a></div>
   <div class="card"><div class="meet"><div class="date"><span>DEC</span><em>3</em></div><div class="info"><div class="nm" style="font-weight:700">Varsity dual</div><div class="sub" style="color:var(--muted);font-size:14px">Stanley High School · time to be added · come support the high school team</div></div></div>
@@ -297,6 +298,7 @@ html,body{overflow-x:clip;max-width:100%}
   <span class="kick">Parents</span>
   <h2>What to expect</h2>
   <p class="lede">Everything a new wrestling family needs to know, in the order you will need it.</p>
+  <div class="strip"><img src="photos/site/photo-14.jpg" alt="SWC volunteers at a club event" loading="lazy"><img src="photos/site/photo-16.jpg" alt="SWC families at the club picnic" loading="lazy"><img src="photos/site/photo-20.jpg" alt="SWC wrestlers giving back" loading="lazy"><img src="photos/site/photo-12.jpg" alt="SWC families at a club event" loading="lazy"></div>
   <div class="expect">
     <div class="card"><h3>Bring</h3><p>A water bottle, athletic shorts and a t-shirt, and wrestling shoes if you have them. No jewelry.</p></div>
     <div class="card"><h3>Drop off 5 minutes before your child's session starts</h3><p>Practice is drop-off only. Drop your wrestler off, then head out.</p></div>
@@ -429,6 +431,21 @@ html,body{overflow-x:clip;max-width:100%}
     else if(cd===1)el.innerHTML='<b>1</b><span>day until '+esc(up.e.t)+' · tomorrow</span>';
     else el.innerHTML='<span>Today: '+esc(up.e.t)+'</span>';
   }else el.innerHTML='<span>See the season calendar below for what is next</span>';
+})();
+</script>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" type="button" aria-label="Close">×</button><button class="pv" type="button" aria-label="Previous photo">‹</button><img alt=""><p></p><button class="nx" type="button" aria-label="Next photo">›</button></div>
+<script>
+(function(){var lb=document.getElementById('lb'),im=lb.querySelector('img'),cap=lb.querySelector('p'),i=0,list=[],x0=null,last=null;
+function build(){list=[].map.call(document.querySelectorAll('#photos img'),function(g){var f=g.closest('figure'),c=f&&f.querySelector('figcaption');return{src:g.getAttribute('src'),alt:g.alt,cap:c?c.textContent:g.alt}})}
+function show(n){i=(n+list.length)%list.length;var it=list[i];im.src=it.src;im.alt=it.alt;cap.innerHTML='';cap.appendChild(document.createTextNode(it.cap));var sm=document.createElement('small');sm.textContent=(i+1)+' / '+list.length;cap.appendChild(sm)}
+function open(src){build();var n=0;for(var k=0;k<list.length;k++){if(list[k].src===src){n=k;break}}last=document.activeElement;show(n);lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
+function close(){lb.classList.remove('on');document.body.style.overflow='';if(last&&last.focus)last.focus()}
+document.addEventListener('click',function(e){var t=e.target;if(t.tagName==='IMG'&&!lb.contains(t)&&t.closest('.shots,.why .pics,.strip,#photos')){open(t.getAttribute('src'))}});
+lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(i-1)};lb.querySelector('.nx').onclick=function(){show(i+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)close()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+lb.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(x0===null)return;var d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)show(d<0?i+1:i-1);x0=null});
 })();
 </script>
 </body></html>

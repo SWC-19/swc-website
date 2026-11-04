@@ -5,6 +5,7 @@ Live at https://swc-19.github.io/swc-website/
 
 ## How it works
 - The whole site is one long page in one file, `index.html`. Photos are in `photos/site/`.
+- Photos appear at the top (hero), in About, above the meets list, in Parents, and in the Photos gallery. Tapping any photo opens a full-screen viewer that steps through every photo in the gallery, uncropped. Full-size photos (photo-28 to photo-31) look best in the big spots.
 - Sections, top to bottom: hero with countdown and four quick boxes (Register, Pay fees, Calendar, Tournaments), Season dates, About the club, Get started (four steps), Schedule (next practice, meets and tournaments, season calendar), Pay, Parents, Photos, Donate/sponsor, Contact.
 - It is hosted free with GitHub Pages from the `main` branch. Changes go live about a minute after they reach `main`.
 - There is no server and no database. Nothing about families is stored here.

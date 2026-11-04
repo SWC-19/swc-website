@@ -52,6 +52,7 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 ## Meets and tournaments
 - Dec 3 and Dec 10: Varsity duals at Stanley High School (free to attend)
 - Dec 30-31: Rumble on Red, Fargo ($25 per wrestler)
+- Sat Feb 6: Williston Tournament, Williston, ND
 - Fri Feb 26: NDUSA Team North Dakota Qualifier, Bismarck
 - Fri Feb 26: Center, ND
 - Sat Feb 27: Bismarck Gorilla Wrestling "The Gorilla", Bismarck
@@ -61,6 +62,7 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 - Fri Mar 12: DLB Tournament, Berthold, ND
 - Sat Mar 13: Kenmare Tournament, Kenmare, ND
 - Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT (Sat team duals no fee; Sun individual $25)
+- Tioga Tournament, Tioga, ND: date to be announced (between Mar 15 and Mar 25). Not on the calendar until it has a date.
 - Mar 26-27: NDUSA Youth Folkstyle State Duals and Individual Championships, Bismarck
 - Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (qualifiers only)
 - Apr 9-11: Black Hills Nationals (AAU card required; families register and pay on their own)

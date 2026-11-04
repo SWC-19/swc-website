@@ -23,6 +23,7 @@ Live at https://swc-19.github.io/swc-website/
   - Tournaments: https://docs.google.com/spreadsheets/d/1R6ds7kFWBCWtEkpluY1bugLDG_U0koYtZ6sclMEZ79U/edit (one tab per tournament)
   - Dues: https://docs.google.com/spreadsheets/d/15ZdCh1_cZIWhHslqbluRfN-WqeypcLbM_hNiITNAk4w/edit (January, February, March tabs)
   - Each tab lists the kids who paid, A-Z by last name, with parent, date paid and receipt number. The tabs read from "Sheet1" (grey tab), where Tally puts the raw rows. Don't edit or rename Sheet1. Hidden cell H1 on each tab is the tournament or month number on the form.
+  - Tournament tabs also show each kid's USA Wrestling # and TrackWrestling #, looked up by name from the registration sheet (https://docs.google.com/spreadsheets/d/1SrZF5iHKCkA1_b4dLDNJKtOyVwTmrrroLOCKp1i6xBk/edit, "Wrestlers" tab) through a hidden "Roster" tab. "Not found - check name" means the name on the payment form doesn't match registration.
   - If a tournament is added to the form, Tally adds new columns to Sheet1 and the tournament tabs need updating.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub

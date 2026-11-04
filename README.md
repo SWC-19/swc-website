@@ -50,7 +50,8 @@ If a price changes in the form, change it in the Pay section and the "What does 
 Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a practice day. No days off have been given yet.
 
 ## Meets and tournaments
-- Dec 3 and Dec 10: Varsity duals at Stanley High School (free to attend)
+- Dec 3 and Dec 10: Varsity duals at Stanley High School (high school events; listed so kids come support the team)
+- Thu Jan 7: Varsity dual and senior night at Stanley High School
 - Dec 30-31: Rumble on Red, Fargo ($25 per wrestler)
 - Sat Feb 6: Williston Tournament, Williston, ND
 - Fri Feb 26: NDUSA Team North Dakota Qualifier, Bismarck (top 2 qualify for Heartland National Duals)
@@ -63,6 +64,7 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 - Sat Mar 13: Kenmare Tournament, Kenmare, ND
 - Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT (Sat team duals no fee; Sun individual $25)
 - Tioga Tournament, Tioga, ND: date to be announced (between Mar 15 and Mar 25). Not on the calendar until it has a date.
+- Stanley Wrestling Tournament, Stanley, ND: date TBA, Fri Mar 19 or Sat Mar 20 (usually the weekend before state). Not on the calendar or payment form yet.
 - Mar 26-27: NDUSA Youth Folkstyle State Duals and Individual Championships, Bismarck
 - Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (only for wrestlers who place top 2 at the NDUSA Team ND Qualifier). Weigh-ins Fri Apr 2; duals Sat-Sun Apr 3-4. Mid-America Center: Elementary, Middle School, Girls 1st-8th. Iowa West Field House: High School boys and girls.
 - Apr 9-11: Black Hills Nationals, James Kjerstad Event Center, 915 E. Centre Street, Rapid City, SD. Fri Apr 9 weigh-ins 12U and under; Sat Apr 10 free clinic and competition 12U and under; Sun Apr 11 weigh-ins and competition 14U and up (times TBA). AAU card required; families register and pay on their own.

@@ -276,10 +276,10 @@ html,body{overflow-x:clip;max-width:100%}
 <section id="pay" class="band alt"><div class="in">
   <span class="kick">Pay online</span>
   <h2>Dues and tournaments</h2>
-  <p class="lede">Payments go to the club's own account. Registration, uniforms and dues are paid by card at the end of the registration form. Tournament payments open soon.</p>
+  <p class="lede">Payments go to the club's own account. Registration, uniforms and dues are paid by card at the end of the registration form. Tournament entries have their own payment form.</p>
   <div class="pay3">
     <div class="card"><h3>Register &amp; Monthly Dues</h3><div class="amt">$100 a month (Feb–Mar)</div><ul style="padding-left:20px;margin:0 0 12px;color:var(--muted)"><li>January: $50 per advanced wrestler</li><li>February and March: $100 a month for the first wrestler, $75 for each additional wrestler</li><li>Uniform set: $50 per wrestler, one time (not needed for 6th graders who wrestled with the high school)</li><li>7th–12th graders: no fees</li><li>Can't volunteer? $300 family fee instead</li></ul><p>The form adds up your total. If you can't pay it all at registration, you can pay part today and the club admin will follow up about the rest.</p><a class="btn" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register wrestlers</a><a class="btn alt" href="#pay" aria-disabled="true">Pay remaining dues · soon</a></div>
-    <div class="card"><span class="soon">Opens soon</span><h3>Tournament entries</h3><div class="amt">Fee set per tournament</div><p>Rumble on Red in Fargo and each tournament as it is announced. Sign up on Heja first.</p><a class="btn" href="#pay" aria-disabled="true">Pay an entry</a></div>
+    <div class="card"><h3>Tournament entries</h3><div class="amt">$25 per wrestler, per tournament</div><p>Sign up on Heja first, then pay here. You can pay for several wrestlers and tournaments at once. After you pay, take a screenshot of the confirmation screen. It is your record of what you paid for.</p><a class="btn" href="https://tally.so/r/YjP8xB" target="_blank" rel="noopener">Pay tournament entries</a></div>
   </div>
   <p class="note">Preseason practice has no fee. Cards are handled by the payment provider and never stored on this site.</p>
 </div></section>
@@ -415,7 +415,7 @@ html,body{overflow-x:clip;max-width:100%}
   }else el.innerHTML='<span>See the season calendar below for what is next</span>';
 })();
 </script><script>
-(function(){var PAY_LINKS={rumble:'',qual:'',gor:'',rat:'',grap:'',iron:'',state:''};
+(function(){var T='https://tally.so/r/YjP8xB',PAY_LINKS={rumble:T,qual:T,gor:T,rat:T,grap:T,iron:T,state:T};
 document.querySelectorAll('.paybtn').forEach(function(b){var u=PAY_LINKS[b.dataset.pay];
 if(u){b.href=u;b.target='_blank';b.rel='noopener'}else{b.textContent='Pay $25 per wrestler · coming soon';b.setAttribute('aria-disabled','true');b.addEventListener('click',function(e){e.preventDefault()})}})})();
 </script>

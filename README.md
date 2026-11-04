@@ -16,6 +16,7 @@ Live at https://swc-19.github.io/swc-website/
 
 ## Where things live
 - **Registration:** Tally form https://tally.so/r/7Xq0xA ("Registration & Payment 2026-27") (one form per family, up to 4 wrestlers; the waiver is signed on the form; registration, uniforms and dues are paid by card at the end of the form). Every Register button on the site points here. Submissions are viewed in the Tally account, not on this site.
+- **Tournament payments:** Tally form https://tally.so/r/YjP8xB ("Tournament Entries 2026-27"). $25 per wrestler per tournament; families tick tournaments for up to 4 wrestlers and pay once. The thank-you screen tells them to take a screenshot as their record. Every tournament Pay button points here (`PAY_LINKS` at the bottom of `index.html`). When a tournament is added or removed, change it in the form too.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub
 - **Club email:** stanleywrestlingclub@gmail.com
@@ -72,5 +73,4 @@ The meets list in the Schedule section is plain HTML. When a tournament changes,
 
 ## Still to do
 - Practice schedule after March, and any days off (holidays, tournament weekends).
-- Online payments: the tournament Pay buttons say "coming soon" until links are added to `PAY_LINKS` at the very bottom of `index.html`.
 - Not built yet: volunteer sign-up page and admin roster page. These need fee amounts and a club payment account first.

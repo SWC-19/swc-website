@@ -17,7 +17,8 @@ Live at https://swc-19.github.io/swc-website/
 
 ## Where things live
 - **Registration:** Tally form https://tally.so/r/7Xq0xA ("Registration & Payment 2026-27") (one form per family, up to 4 wrestlers; the waiver is signed on the form; registration, uniforms and dues are paid by card at the end of the form). Every Register button on the site points here. Submissions are viewed in the Tally account, not on this site.
-- **Tournament payments:** Tally form https://tally.so/r/YjP8xB ("Tournament Entries 2026-27"). $25 per wrestler per tournament; families tick tournaments for up to 4 wrestlers and pay once. Families pay first, then sign up for each tournament on Heja. The thank-you screen tells them to take a screenshot as their record. The site has one "Pay tournament entries" button above the meets list that points here; each paid tournament in the list just shows a "$25 entry" tag. When a tournament is added or removed, change it in the form too.
+- **Tournament payments:** Tally form https://tally.so/r/YjP8xB ("Tournament Entries 2026-27"). $25 per wrestler per tournament; families tick tournaments for up to 4 wrestlers and pay once. Families pay first, then sign up for each tournament on Heja. The thank-you screen tells them to take a screenshot as their record. The site has one "Pay tournament entries" button above the meets list that points here; each paid tournament in the list just shows a "$25 entry" tag. When a tournament is added, add it to the form too. Past tournaments stay on the form so families can still pay for them later.
+- **Pay Dues:** Tally form https://tally.so/r/yXMWKp ("Pay Dues 2026-27"). For paying dues after registration day. Parents pick each wrestler and the months they are paying for (January $50 for advanced wrestlers; February and March $100 for the first wrestler and $75 for each additional). The form adds up the total and takes card payment.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub
 - **Coaches:** John Batteiger (head coach), Jake Carpenter, Matt Ruland, Dusty Fladeland, Chandler Meiers, Rocky Fladeland, Jay Sorenson. Headshots in `photos/coaches/` were cut from the team photo (`photos/site/photo-28.jpg`); swap in sharper photos with the same file names any time.
@@ -76,7 +77,7 @@ All three read from the script near the bottom of `index.html`:
 - `EVENTS`: season starts, duals, tournaments and deadlines. The season calendar shows them, and the countdown at the top of the page counts down to the next one. Colors: `s` season starts (green), `d` varsity dual (red), `r` tournament (black), `k` deadline (purple). Months are numbered from 0 (Jan = 0, Dec = 11). Use `e` for the last day of a multi-day event.
 - `PRACTICE`: which days are practice days (blue on the calendar). Nov and Dec are listed by hand; Jan-Mar are every Mon/Tue/Thu.
 - `SCHED`: the practice times listed under each month.
-- `CAL_MONTHS`: which months have a button above the calendar (now Nov-Feb; add `[2027,2]` to bring March back).
+- `CAL_MONTHS`: which months have a button above the calendar (now Nov-Mar).
 - The "Next practice" card follows `PRACTICE`; its times come from the `ptimes` function.
 
 The meets list in the Schedule section is plain HTML. When a tournament changes, update it there and in `EVENTS`.

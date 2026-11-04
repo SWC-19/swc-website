@@ -53,7 +53,7 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 - Dec 3 and Dec 10: Varsity duals at Stanley High School (free to attend)
 - Dec 30-31: Rumble on Red, Fargo ($25 per wrestler)
 - Fri Feb 26: NDUSA Team North Dakota Qualifier, Bismarck
-- Fri Feb 26: Dakota Rattlers Individuals, Center
+- Fri Feb 26: Center, ND
 - Sat Feb 27: Bismarck Gorilla Wrestling "The Gorilla", Bismarck
 - Sat Mar 6: Dakota Rattlers Individual Tournament, Minot
 - Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT

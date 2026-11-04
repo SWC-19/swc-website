@@ -55,10 +55,10 @@ Every Mon/Tue/Thu in January (from Jan 4), February and March is marked as a pra
 - Fri Feb 26: NDUSA Team North Dakota Qualifier, Bismarck
 - Fri Feb 26: Center, ND
 - Sat Feb 27: Bismarck Gorilla Wrestling "The Gorilla", Bismarck
-- Fri Mar 5: Dakota Rattlers Dual Tournament, Minot
+- Fri Mar 5: Dakota Rattlers Dual Tournament, Minot (no entry fee, not on the payment form)
 - Fri Mar 5: Velva Individual Tournament, Velva, ND
 - Sat Mar 6: Dakota Rattlers Individual Tournament, Minot
-- Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT
+- Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT (Sat team duals no fee; Sun individual $25)
 - Mar 26-27: NDUSA Youth Folkstyle State Duals and Individual Championships, Bismarck
 - Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (qualifiers only)
 - Apr 9-11: Black Hills Nationals (AAU card required; families register and pay on their own)

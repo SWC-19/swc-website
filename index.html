@@ -260,6 +260,8 @@ html,body{overflow-x:clip;max-width:100%}
     <div class="meet"><div class="date"><span>FEB</span><em>26</em></div><div class="info"><div class="nm" style="font-weight:700">NDUSA Team North Dakota Qualifier</div><div class="sub" style="color:var(--muted);font-size:14px">Bismarck, ND</div></div><a class="btn alt paybtn" data-pay="qual" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>FEB</span><em>26</em></div><div class="info"><div class="nm" style="font-weight:700">Center, ND</div><div class="sub" style="color:var(--muted);font-size:14px">Friday, Feb 26</div></div><a class="btn alt paybtn" data-pay="rat" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>FEB</span><em>27</em></div><div class="info"><div class="nm" style="font-weight:700">Bismarck Gorilla Wrestling “The Gorilla”</div><div class="sub" style="color:var(--muted);font-size:14px">Bismarck, ND</div></div><a class="btn alt paybtn" data-pay="gor" href="#pay">Pay $25 per wrestler</a></div>
+    <div class="meet"><div class="date"><span>MAR</span><em>5</em></div><div class="info"><div class="nm" style="font-weight:700">Dakota Rattlers Dual Tournament</div><div class="sub" style="color:var(--muted);font-size:14px">Minot, ND · Friday, Mar 5</div></div><a class="btn alt paybtn" data-pay="rdual" href="#pay">Pay $25 per wrestler</a></div>
+    <div class="meet"><div class="date"><span>MAR</span><em>5</em></div><div class="info"><div class="nm" style="font-weight:700">Velva Individual Tournament</div><div class="sub" style="color:var(--muted);font-size:14px">Velva, ND · Friday, Mar 5</div></div><a class="btn alt paybtn" data-pay="velva" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>MAR</span><em>6</em></div><div class="info"><div class="nm" style="font-weight:700">Dakota Rattlers Individual Tournament</div><div class="sub" style="color:var(--muted);font-size:14px">Minot, ND</div></div><a class="btn alt paybtn" data-pay="grap" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>MAR</span><em>13–14</em></div><div class="info"><div class="nm" style="font-weight:700">Brodie Gorder Memorial Iron Eagle Tournament</div><div class="sub" style="color:var(--muted);font-size:14px">Sidney High School &amp; Richland County Event Center, Sidney, MT · Team duals Sat Mar 13, individual brackets Sun Mar 14</div></div><a class="btn alt paybtn" data-pay="iron" href="#pay">Pay $25 per wrestler</a></div>
     <div class="meet"><div class="date"><span>MAR</span><em>26–27</em></div><div class="info"><div class="nm" style="font-weight:700">NDUSA Youth Folkstyle State Duals and Individual Championships</div><div class="sub" style="color:var(--muted);font-size:14px">Hosted by Matpac · Bismarck, ND</div></div><a class="btn alt paybtn" data-pay="state" href="#pay">Pay $25 per wrestler</a></div>
@@ -362,6 +364,8 @@ html,body{overflow-x:clip;max-width:100%}
     {y:2027,m:1,d:26,c:'r',t:'NDUSA Team North Dakota Qualifier, Bismarck'},
     {y:2027,m:1,d:26,c:'r',t:'Tournament, Center, ND'},
     {y:2027,m:1,d:27,c:'r',t:'The Gorilla, Bismarck'},
+    {y:2027,m:2,d:5,c:'r',t:'Dakota Rattlers Dual Tournament, Minot'},
+    {y:2027,m:2,d:5,c:'r',t:'Velva Individual Tournament, Velva, ND'},
     {y:2027,m:2,d:6,c:'r',t:'Dakota Rattlers Individual Tournament, Minot'},
     {y:2027,m:2,d:13,e:14,c:'r',t:'Iron Eagle Tournament, Sidney, MT'},
     {y:2027,m:2,d:26,e:27,c:'r',t:'NDUSA State Duals and Individuals, Bismarck'}
@@ -415,7 +419,7 @@ html,body{overflow-x:clip;max-width:100%}
   }else el.innerHTML='<span>See the season calendar below for what is next</span>';
 })();
 </script><script>
-(function(){var T='https://tally.so/r/YjP8xB',PAY_LINKS={rumble:T,qual:T,gor:T,rat:T,grap:T,iron:T,state:T};
+(function(){var T='https://tally.so/r/YjP8xB',PAY_LINKS={rumble:T,qual:T,gor:T,rat:T,grap:T,iron:T,state:T,rdual:T,velva:T};
 document.querySelectorAll('.paybtn').forEach(function(b){var u=PAY_LINKS[b.dataset.pay];
 if(u){b.href=u;b.target='_blank';b.rel='noopener'}else{b.textContent='Pay $25 per wrestler · coming soon';b.setAttribute('aria-disabled','true');b.addEventListener('click',function(e){e.preventDefault()})}})})();
 </script>

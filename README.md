@@ -15,7 +15,7 @@ Live at https://swc-19.github.io/swc-website/
 - If something you are told is unclear (a date, a name, a place), ask instead of guessing.
 
 ## Where things live
-- **Registration:** Tally form https://tally.so/r/YjjzVB (one form per family, up to 4 wrestlers; the waiver is signed on the form). Every Register button on the site points here. Submissions are viewed in the Tally account, not on this site.
+- **Registration:** Tally form https://tally.so/r/7Xq0xA ("Registration & Payment 2026-27") (one form per family, up to 4 wrestlers; the waiver is signed on the form; registration, uniforms and dues are paid by card at the end of the form). Every Register button on the site points here. Submissions are viewed in the Tally account, not on this site.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub
 - **Club email:** stanleywrestlingclub@gmail.com
@@ -25,6 +25,16 @@ Live at https://swc-19.github.io/swc-website/
 - **Preseason:** starts Mon Nov 9, 2026. Mon/Tue/Thu 4:00-5:15 PM. 2nd-5th grade with 2+ years of experience. No fee. USA Wrestling membership required.
 - **Advanced boys and girls:** start Mon Jan 4, 2027.
 - **Beginners:** start Tue Feb 2, 2027.
+
+## Fees (from the registration form)
+- Uniform set: $50 per wrestler, one time (not needed for 6th graders who wrestled with the high school)
+- January dues: $50 per advanced wrestler
+- February and March dues: $100 a month for the first wrestler, $75 for each additional
+- 7th-12th graders: no fees
+- Family fee if not volunteering: $300
+- Tournaments: $25 per wrestler
+
+If a price changes in the form, change it in the Pay section and the "What does it cost after preseason?" answer too.
 
 ## Practice times
 | Month | Group | Days and times |
@@ -62,5 +72,5 @@ The meets list in the Schedule section is plain HTML. When a tournament changes,
 
 ## Still to do
 - Practice schedule after March, and any days off (holidays, tournament weekends).
-- Online payments: the tournament Pay buttons say "coming soon" until links are added to `PAY_LINKS` at the very bottom of `index.html`. Dues amount is still "to be announced".
+- Online payments: the tournament Pay buttons say "coming soon" until links are added to `PAY_LINKS` at the very bottom of `index.html`.
 - Not built yet: volunteer sign-up page and admin roster page. These need fee amounts and a club payment account first.

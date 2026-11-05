@@ -54,6 +54,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #6F
 .hero h1{font-size:clamp(52px,11vw,96px);line-height:.92;margin:8px 0 16px}
 .hero p{font-size:clamp(18px,2.4vw,21px);color:#E4ECFF;max-width:44ch;margin:0 0 24px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero .prep{font-size:15px;margin:12px 0 0;opacity:.95}.hero .prep a{color:inherit;font-weight:700;text-decoration:underline}
 .count{display:inline-flex;align-items:baseline;gap:10px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:10px;padding:8px 14px;margin-top:22px;font-weight:700}
 .count b{font-family:var(--display);font-weight:800;font-size:34px;line-height:1}
 .shots{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -200,6 +201,7 @@ html,body{overflow-x:clip;max-width:100%}
     <h1>Wrestling starts here.</h1>
     <p>Never wrestled before? Everyone starts somewhere. Come learn the sport with coaches who care about every kid on the mat.</p>
     <div class="cta"><a class="btn white" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register your wrestler</a><a class="btn ghost" href="#schedule">See the schedule</a></div>
+    <p class="prep">Before you register: get your USA Wrestling and TrackWrestling numbers. <a href="#start">See the 4 quick steps</a></p>
     <div class="count" id="count"><span>Preseason starts Monday, Nov 9 at 4:00 PM</span></div>
     <div class="quick"><a class="q-reg" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/></svg></span><em class="qt">Start here</em><b>Register</b><span class="qs">Sign up your wrestler</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-pay" href="#pay"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><b>Pay fees</b><span class="qs">Dues and tournaments</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-cal" href="#schedule"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span><b>Calendar</b><span class="qs">Practice days and times</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="q-trn" href="#schedule"><span class="qi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3a3 3 0 0 1-3 4M7 5H4a3 3 0 0 0 3 4"/></svg></span><b>Tournaments</b><span class="qs">Dates and details</span><svg class="qa" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div>
   </div>
@@ -249,12 +251,12 @@ html,body{overflow-x:clip;max-width:100%}
 <section id="start" class="band alt"><div class="in">
   <span class="kick">New families</span>
   <h2>Ready? Four quick steps</h2>
-  <p class="lede">Do these in order and your wrestler is ready for the first night.</p>
+  <p class="lede">Do these in order. Registration takes about 10 minutes once you have steps 1 and 2 done.</p>
   <ol class="steps">
-    <li><b>Get USA Wrestling</b><span>Required for wrestlers age 5 to 6th grade. 7th–12th graders only need it for USA Wrestling tournaments.</span><a class="btn" href="https://www.usawmembership.com" target="_blank" rel="noopener">Get it</a></li>
-    <li><b>Register</b><span>One form per family, up to 4 wrestlers. The waiver is signed on the form.</span><a class="btn red" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register</a></li>
-    <li><b>Join us on Heja</b><span>Required. Team messages go out here. Team code: <b style="font-size:inherit">GR986946</b></span><a class="btn" href="https://heja.io" target="_blank" rel="noopener">Join Heja</a></li>
-    <li><b>Follow us on Facebook</b><span>Required. Club news and updates are posted here.</span><a class="btn" href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Follow</a></li>
+    <li><b>Get a USA Wrestling card</b><span>Required for wrestlers age 5 to 6th grade. 7th–12th graders only need it for USA Wrestling tournaments. Write down the membership number.</span><a class="btn" href="https://www.usawmembership.com" target="_blank" rel="noopener">Get it</a></li>
+    <li><b>Make a TrackWrestling profile</b><span>Free. Required for wrestlers age 5 to 6th grade. Make one for each wrestler and write down the number.</span><a class="btn" href="https://www.trackwrestling.com" target="_blank" rel="noopener">TrackWrestling</a></li>
+    <li><b>Register</b><span>One form per family, up to 4 wrestlers. You will also need each wrestler's weight, uniform sizes and an emergency contact. The waiver is signed on the form.</span><a class="btn red" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register</a></li>
+    <li><b>Join Heja and Facebook</b><span>Required. Team messages go out on Heja (team code: <b style="font-size:inherit">GR986946</b>). Club news is on Facebook.</span><a class="btn" href="https://heja.io" target="_blank" rel="noopener">Join Heja</a> <a class="btn alt" href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Facebook</a></li>
   </ol>
 </div></section>
 

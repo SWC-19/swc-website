@@ -225,9 +225,9 @@ html,body{overflow-x:clip;max-width:100%}
   <span class="kick">Season dates</span>
   <h2>When each group starts</h2>
   <div class="seasons">
-    <div class="card"><div class="date"><span>NOV</span><em>9</em></div><div><h3>Preseason</h3><p class="when">Monday, Nov 9 · 4:00 PM</p><p>2nd–5th grade with 2+ years of experience. No fee.</p></div></div>
-    <div class="card"><div class="date"><span>JAN</span><em>4</em></div><div><h3>Advanced boys &amp; girls</h3><p class="when">Monday, Jan 4, 2027</p><p>Mon, Tue, Thu. Girls 4:00–5:15 PM, boys 5:15–6:30 PM. Times change in February.</p></div></div>
-    <div class="card"><div class="date red"><span>FEB</span><em>2</em></div><div><h3>Beginners</h3><p class="when">Tuesday, Feb 2, 2027</p><p>New to wrestling? This is where you start. Tue and Thu, 4:00–4:45 PM.</p></div></div>
+    <div class="card"><div class="date"><span>NOV</span><em>9</em></div><div><h3>Preseason</h3><p class="when">Monday, Nov 9 · 4:00 PM</p><p>Nov 9 – Dec 31. 2nd–6th grade with 2+ years of experience. No fee.</p></div></div>
+    <div class="card"><div class="date"><span>JAN</span><em>5</em></div><div><h3>Advanced boys &amp; girls</h3><p class="when">Tuesday, Jan 5, 2027</p><p>Jan 5 – Mar 31. 2nd–6th grade with 2+ years of experience. Mon, Tue, Thu. Girls 4:00–5:15 PM, boys 5:15–6:30 PM. Times change in February.</p></div></div>
+    <div class="card"><div class="date red"><span>FEB</span><em>9</em></div><div><h3>Beginners</h3><p class="when">Tuesday, Feb 9, 2027</p><p>Feb 9 – Mar 31. Age 5 to 6th grade. New to wrestling? This is where you start. Tue and Thu, 4:00–4:45 PM.</p></div></div>
   </div>
 </div></section>
 
@@ -384,8 +384,8 @@ html,body{overflow-x:clip;max-width:100%}
     {y:2026,m:11,d:10,c:'d',t:'Varsity dual at the high school'},
     {y:2027,m:0,d:7,c:'d',t:'Varsity dual & senior night at the high school'},
     {y:2026,m:11,d:30,e:31,c:'r',t:'Rumble on Red, Fargo'},
-    {y:2027,m:0,d:4,c:'s',t:'Advanced boys & girls start'},
-    {y:2027,m:1,d:2,c:'s',t:'Beginners start'},
+    {y:2027,m:0,d:5,c:'s',t:'Advanced boys & girls start'},
+    {y:2027,m:1,d:9,c:'s',t:'Beginners start'},
     {y:2027,m:1,d:6,c:'r',t:'Williston Tournament, Williston, ND'},
     {y:2027,m:1,d:26,c:'r',t:'NDUSA Team North Dakota Qualifier, Bismarck'},
     {y:2027,m:1,d:26,c:'r',t:'Tournament, Center, ND'},
@@ -400,11 +400,11 @@ html,body{overflow-x:clip;max-width:100%}
   ];
   function mtwth(y,m,from){var r=[],n=new Date(y,m+1,0).getDate();for(var d=from;d<=n;d++){var w=new Date(y,m,d).getDay();if(w===1||w===2||w===4)r.push(d)}return r}
   // Days off: remove a day with .filter, e.g. Jan 7 (varsity dual night) below.
-  var PRACTICE={'2026-10':practice[11],'2026-11':practice[12],'2027-0':mtwth(2027,0,4).filter(function(d){return d!==7}),'2027-1':mtwth(2027,1,1),'2027-2':mtwth(2027,2,1)};
+  var PRACTICE={'2026-10':practice[11],'2026-11':practice[12],'2027-0':mtwth(2027,0,5).filter(function(d){return d!==7}),'2027-1':mtwth(2027,1,1),'2027-2':mtwth(2027,2,1)};
   var PRE=[['Practice','Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St']];
   var SCHED={'2026-10':PRE,'2026-11':PRE,
     '2027-0':[['Advanced girls','Mon, Tue, Thu · 4:00–5:15 PM'],['Advanced boys','Mon, Tue, Thu · 5:15–6:30 PM']],
-    '2027-1':[['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 2)'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']],
+    '2027-1':[['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 9)'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']],
     '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']]};
   var FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}

@@ -41,7 +41,7 @@ Live at https://swc-19.github.io/swc-website/
 ## Season dates
 - **Preseason:** starts Mon Nov 9, 2026. Mon/Tue/Thu 4:00-5:15 PM. 2nd-6th grade with 2+ years of experience. Runs Nov 9 - Dec 31. No fee. USA Wrestling membership required.
 - **Advanced boys and girls:** Tue Jan 5 - Mar 31, 2027. 2nd-6th grade with 2+ years of experience.
-- **Beginners:** Tue Feb 9 - Mar 31, 2027. Age 5 to 6th grade. Tue/Thu.
+- **Beginners:** Tue Feb 9 - Mar 31, 2027. Age 5 to 6th grade. First- and second-year wrestlers. Tue/Thu.
 
 ## Fees (from the registration form)
 - Uniform set: $50 per wrestler, one time (not needed for 6th graders who wrestled with the high school)

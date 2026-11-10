@@ -118,4 +118,5 @@ The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR c
 
 ## Donations and sponsors
 - The club's donation/sponsor letter is at `forms/swc-donation-form.pdf` (https://stanleywrestlingclub.org/forms/swc-donation-form.pdf). The website "Become a sponsor" card lists the levels from it (Gold $1,000, Silver $500, Bronze $250, Athlete $100), links the PDF, and says checks go to Stanley Wrestling Club, PO Box 268, Stanley, ND 58784.
+- The "Be our first sponsor" banner was removed (the club already has sponsors). When the user sends the sponsor names/logos, add a "Thank you to our sponsors" list there.
 - The online "Give to the club" button stays disabled ("Opens soon") until the board decides (user, Nov 2026).

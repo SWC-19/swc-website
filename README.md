@@ -115,3 +115,7 @@ The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR c
 - The form shows an "Upcoming tournaments" text list (Tally block cfbcec3d-5fef-439d-bf4c-c3391a70bf0e) of the tournaments that aren't open for payment yet. When one opens, take it off that list.
 - Tournaments without a price yet are hidden: Wrestler 1's options are hidden directly, Wrestlers 2-4 by one HIDE rule ("How many wrestlers IS NOT EMPTY"). To add a tournament: set its label and price, unhide its Wrestler 1 option, remove its three options from that HIDE rule, change its four "+ 25" rules to the real price, update its review/receipt text lines, and set its Amount formula on the Tournament sheet Totals tab.
 - Rumble on the Red: $40, closes at the end of Thu Dec 3. A one-time scheduled message fires into the build session at 12:00 AM Central on Dec 4 to hide Rumble on the form (or close the whole form if no other tournament is open yet) and mark it closed on the website. Totals tab counts Rumble at $40.
+
+## Donations and sponsors
+- The club's donation/sponsor letter is at `forms/swc-donation-form.pdf` (https://stanleywrestlingclub.org/forms/swc-donation-form.pdf). The website "Become a sponsor" card lists the levels from it (Gold $1,000, Silver $500, Bronze $250, Athlete $100), links the PDF, and says checks go to Stanley Wrestling Club, PO Box 268, Stanley, ND 58784.
+- The online "Give to the club" button stays disabled ("Opens soon") until the board decides (user, Nov 2026).

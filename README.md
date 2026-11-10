@@ -101,5 +101,5 @@ The meets list in the Schedule section is plain HTML. When a tournament changes,
 
 ## Coming soon mode (before launch)
 Right now the live site shows a "Coming soon" page (index.html). The full website is saved on the `full-site` branch.
-To launch: copy index.html from the `full-site` branch onto `main` (`git checkout full-site -- index.html`), commit, push,
+To launch: copy index.html from the `full-site` branch onto `main` (`git checkout full-site -- index.html`), commit and push.
 The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR codes go straight to them.

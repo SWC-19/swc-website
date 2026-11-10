@@ -100,6 +100,9 @@ The meets list in the Schedule section is plain HTML. When a tournament changes,
 - Not built yet: volunteer sign-up page and admin roster page. These need fee amounts and a club payment account first.
 
 ## Coming soon mode (before launch)
-Right now the live site shows a "Coming soon" page (index.html). The full website is saved on the `full-site` branch.
-To launch: copy index.html from the `full-site` branch onto `main` (`git checkout full-site -- index.html`), commit and push.
+Right now the live site (index.html) shows a "Coming soon" page.
+The full website lives at a hidden preview address: https://stanleywrestlingclub.org/preview-d4597c3d/
+(not linked anywhere, and search engines are told not to list it). Make all site tweaks in preview-d4597c3d/index.html.
+To launch: copy preview-d4597c3d/index.html over index.html, change "../photos/" back to "photos/",
+remove the noindex line, delete the preview folder, commit and push.
 The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR codes go straight to them.

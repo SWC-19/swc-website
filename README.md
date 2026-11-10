@@ -80,6 +80,7 @@ Every Mon/Tue/Thu in January (from Jan 5), February and March is marked as a pra
 - Sat Mar 13: Kenmare Tournament, Kenmare, ND
 - Mar 13-14: Brodie Gorder Memorial Iron Eagle Tournament, Sidney, MT (Sat team duals no fee; Sun individual $25)
 - Tioga Tournament, Tioga, ND: date to be announced (between Mar 15 and Mar 25). Not on the calendar until it has a date.
+- Grenora Tournament, Grenora, ND: date TBD (on the site list, the "Date TBD" box under the calendar and the payment form upcoming list; data-end set to Mar 31 until a date is known).
 - Stanley Wrestling Tournament, Stanley, ND: date TBA, Fri Mar 19 or Sat Mar 20 (usually the weekend before state). $25 per wrestler (on the payment form). Not on the calendar until it has a date.
 - Mar 26-27: NDUSA Youth Folkstyle State Duals and Individual Championships, Bismarck
 - Apr 2-4: Heartland USA National Duals, Council Bluffs, IA (only for wrestlers who place top 2 at the NDUSA Team ND Qualifier). Weigh-ins Fri Apr 2; duals Sat-Sun Apr 3-4. Mid-America Center: Elementary, Middle School, Girls 1st-8th. Iowa West Field House: High School boys and girls.

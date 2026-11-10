@@ -269,11 +269,11 @@ html,body{overflow-x:clip;max-width:100%}
   <div class="psched">
     <div class="card pblk"><div class="phd"><b>Preseason</b><span>Nov 9 – Dec 31</span></div>
       <div class="prow"><span class="pwho">Preseason group<small>2nd–6th grade, 3rd year+</small></span><span class="pday">Mon, Tue, Thu</span><span class="ptm">4:00–5:15 PM</span></div></div>
-    <div class="card pblk"><div class="phd"><b>January</b><span>Jan 5 – 31</span></div>
+    <div class="card pblk"><div class="phd"><b>January</b><span>Jan 5 – Feb 8</span></div>
       <div class="prow"><span class="pwho">Advanced girls</span><span class="pday">Mon, Tue, Thu</span><span class="ptm">4:00–5:15 PM</span></div>
       <div class="prow"><span class="pwho">Advanced boys</span><span class="pday">Mon, Tue, Thu</span><span class="ptm">5:15–6:30 PM</span></div>
       <p class="pnote">No practice Thu, Jan 7 (varsity dual night).</p></div>
-    <div class="card pblk"><div class="phd"><b>February &amp; March</b><span>Feb 1 – Mar 31</span></div>
+    <div class="card pblk"><div class="phd"><b>February &amp; March</b><span>Feb 9 – Mar 31</span></div>
       <div class="prow"><span class="pwho">Beginners<small>Start Tue, Feb 9</small></span><span class="pday">Tue, Thu</span><span class="ptm">4:00–4:45 PM</span></div>
       <div class="prow"><span class="pwho">Advanced girls</span><span class="pday">Mon<br>Tue, Thu</span><span class="ptm">4:00–5:15 PM<br>4:45–6:00 PM</span></div>
       <div class="prow"><span class="pwho">Advanced boys</span><span class="pday">Mon<br>Tue, Thu</span><span class="ptm">5:15–6:30 PM<br>6:00–7:15 PM</span></div></div>
@@ -419,7 +419,7 @@ html,body{overflow-x:clip;max-width:100%}
   var PRE=[['Practice','Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St']];
   var SCHED={'2026-10':PRE,'2026-11':PRE,
     '2027-0':[['Advanced girls','Mon, Tue, Thu · 4:00–5:15 PM'],['Advanced boys','Mon, Tue, Thu · 5:15–6:30 PM']],
-    '2027-1':[['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 9)'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']],
+    '2027-1':[['Feb 1–8','Same as January: girls 4:00–5:15 PM, boys 5:15–6:30 PM'],['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 9)'],['Advanced girls','From Feb 9: Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','From Feb 9: Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']],
     '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']]};
   var FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
@@ -427,8 +427,8 @@ html,body{overflow-x:clip;max-width:100%}
   function pchips(y,m,d){
     if(y===2026)return pchip('p','Practice','4:00','5:15');
     var w=new Date(y,m,d).getDay(),r='';
-    if(m===0||w===1)return pchip('pg','Girls','4:00','5:15')+pchip('pb','Boys','5:15','6:30');
-    if(!(m===1&&d<9))r+=pchip('pn','<span class="lfull">Beginners</span><span class="lshort">Beg.</span>','4:00','4:45');
+    if(m===0||w===1||(m===1&&d<9))return pchip('pg','Girls','4:00','5:15')+pchip('pb','Boys','5:15','6:30');
+    r+=pchip('pn','<span class="lfull">Beginners</span><span class="lshort">Beg.</span>','4:00','4:45');
     return r+pchip('pg','Girls','4:45','6:00')+pchip('pb','Boys','6:00','7:15');
   }
   function monthHTML(y,m){
@@ -461,7 +461,7 @@ html,body{overflow-x:clip;max-width:100%}
   function ptimes(x){
     if(x.getFullYear()===2026)return '4:00–5:15 PM';
     var w=x.getDay();
-    if((x.getMonth()===1||x.getMonth()===2)&&w!==1)return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
+    if((x.getMonth()===1||x.getMonth()===2)&&w!==1&&!(x.getMonth()===1&&x.getDate()<9))return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
     return 'Girls 4:00–5:15, boys 5:15–6:30 PM';
   }
   var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),nx=list.filter(function(x){return x>=t})[0];

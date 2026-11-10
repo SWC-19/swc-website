@@ -117,6 +117,6 @@ The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR c
 - Rumble on the Red: $40, closes at the end of Thu Dec 3. A one-time scheduled message fires into the build session at 12:00 AM Central on Dec 4 to hide Rumble on the form (or close the whole form if no other tournament is open yet) and mark it closed on the website. Totals tab counts Rumble at $40.
 
 ## Donations and sponsors
-- The club's donation/sponsor letter is at `forms/swc-donation-form.pdf` (https://stanleywrestlingclub.org/forms/swc-donation-form.pdf). The website "Become a sponsor" card lists the levels from it (Gold $1,000, Silver $500, Bronze $250, Athlete $100), links the PDF, and says checks go to Stanley Wrestling Club, PO Box 268, Stanley, ND 58784.
+- The club's donation/sponsor letter is at `forms/swc-donation-form.pdf` (https://stanleywrestlingclub.org/forms/swc-donation-form.pdf). Donate and sponsor are one website card (matching the letter, which leads with sponsor levels and treats any amount as a tax-deductible gift). The "Become a sponsor" card lists the levels from it (Gold $1,000, Silver $500, Bronze $250, Athlete $100), links the PDF, and says checks go to Stanley Wrestling Club, PO Box 268, Stanley, ND 58784.
 - The "Be our first sponsor" banner was removed (the club already has sponsors). When the user sends the sponsor names/logos, add a "Thank you to our sponsors" list there.
-- The online "Give to the club" button stays disabled ("Opens soon") until the board decides (user, Nov 2026).
+- The online "Give online" button (bottom of the sponsor card) stays disabled ("Opens soon") until the board decides (user, Nov 2026).

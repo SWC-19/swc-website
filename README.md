@@ -125,5 +125,8 @@ The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR c
 ## Schedule section
 - Clicking Schedule lands on the "Next practice" card, then a practice schedule (one card per part of the season: Preseason, January, February & March) listing each group, days and times, with the "Next practice" card (filled in by script) on top, then the month calendar (each date shows what is on it: practice groups with start times (Preseason "Practice 4:00" blue; Jan-Mar "Girls" magenta, "Boys" blue, "Beginners" teal, from pchips() in the script; end times show on computers only), varsity duals in red, tournaments in black, start dates in green; short names come from each EVENTS entry's `s` field; today has a yellow outline), then the tournament list. If practice times change, update both these cards and the calendar data (SCHED / ptimes in the script).
 
+## Club board
+- Lionie Fladeland, Danielle Fladeland, Jake Carpenter (no titles given). Shown on the website under the coaches ("Club board" box) and on page 2 of the parent handbook.
+
 ## Parent handbook
 - Source: `handbook/handbook.html` (8 letter pages, club colors). Build the PDF with Playwright: open the file and `page.pdf({format:'Letter',printBackground:true,preferCSSPageSize:true})`. Facts come from the website (schedule, fees, contacts, tournament process). Draft sent to the user Nov 10 for review (PDF at handbook/SWC-Parent-Handbook.pdf); not yet linked from the website. Youth headgear is optional; most tournaments use practice weigh-ins (exceptions: Rumble, ND Qualifier, State, Black Hills); brackets on FloWrestling.

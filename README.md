@@ -1,7 +1,7 @@
 # Stanley Wrestling Club website
 
 Public website for the Stanley Wrestling Club (SWC), Stanley, ND.
-Live at https://swc-19.github.io/swc-website/
+Live at https://stanleywrestlingclub.org (domain bought on Cloudflare; DNS: four GitHub A records + www CNAME to swc-19.github.io, all "DNS only"). Old address https://swc-19.github.io/swc-website/ forwards there.
 
 ## How it works
 - The whole site is one long page in one file, `index.html`. Photos are in `photos/site/`.

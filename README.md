@@ -100,13 +100,10 @@ The meets list in the Schedule section is plain HTML. When a tournament changes,
 - Practice schedule after March, and any days off (holidays, tournament weekends).
 - Not built yet: volunteer sign-up page and admin roster page. These need fee amounts and a club payment account first.
 
-## Coming soon mode (before launch)
-Right now the live site (index.html) shows a "Coming soon" page.
-The full website lives at a hidden preview address: https://stanleywrestlingclub.org/preview-d4597c3d/
-(not linked anywhere, and search engines are told not to list it). Make all site tweaks in preview-d4597c3d/index.html.
-To launch: copy preview-d4597c3d/index.html over index.html, change "../photos/" back to "photos/",
-remove the noindex line, delete the preview folder, commit and push.
-The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR codes go straight to them.
+## Launched (Nov 10, 2026)
+The full site is live at https://stanleywrestlingclub.org (index.html). Make all site edits in index.html; photos use `photos/...`, flyers `/flyers/...`, forms `/forms/...`, the handbook `/handbook/...`.
+The old preview address (/preview-d4597c3d/) now just forwards to the live site. The old "Coming soon" page is not kept in the repo anymore (it is in git history before the launch commit).
+The Tally forms (Registration, Pay Dues, Tournament) are open.
 
 ## Tournament payment form: per-tournament prices
 - Each tournament is one checkbox per wrestler (4 wrestlers) and adds its own price through a CALCULATE rule on the total.

@@ -17,7 +17,7 @@ Live at https://stanleywrestlingclub.org (domain bought on Cloudflare; DNS: four
 
 ## Where things live
 - **Registration:** Tally form https://tally.so/r/7Xq0xA ("Registration & Payment 2026-27") (one form per family, up to 4 wrestlers; the waiver is signed on the form; registration, uniforms and dues are paid by card at the end of the form). Every Register button on the site points here. Submissions are viewed in the Tally account, not on this site.
-- **Tournament payments:** Tally form https://tally.so/r/YjP8xB ("Tournament Entries 2026-27"). $25 per wrestler per tournament; families tick tournaments for up to 4 wrestlers and pay once. Families pay first, then sign up for each tournament on Heja. The thank-you screen tells them to take a screenshot as their record. The site has one "Pay tournament entries" button above the meets list that points here; each paid tournament in the list just shows a "$25 entry" tag. When a tournament is added, add it to the form too. Past tournaments stay on the form so families can still pay for them later.
+- **Tournament payments:** Tally form https://tally.so/r/YjP8xB ("Tournament Entries 2026-27"). Each tournament has its own price (board decision, Nov 2026). Families tick tournaments for up to 4 wrestlers and pay once. Families pay first, then sign up for each tournament on Heja. The thank-you screen tells them to take a screenshot as their record. The site has one "Pay tournament entries" button above the meets list that points here; each paid tournament in the list just shows a "$25 entry" tag. When a tournament is added, add it to the form too. Past tournaments stay on the form so families can still pay for them later.
 - **Pay Dues:** Tally form https://tally.so/r/yXMWKp ("Pay Dues 2026-27"). For paying dues after registration day. Parents pick each wrestler and the months they are paying for (January $50 for advanced wrestlers; February and March, beginners and advanced, $100 for the first wrestler and $75 for each additional). The form adds up the total and takes card payment. The "Pay dues" button in the Pay section and the cost answer in Common questions point here. Sibling pricing only applies within one payment: if a family pays a month for one kid at registration and later pays the same month for a sibling alone, the form charges $100, not $75. Decision: leave it; the form tells families to pay siblings together, and the admins refund $25 if it happens. Name boxes ask parents to spell names as on registration (the Dues sheet matches by name).
 - **Payment sheets (Google Sheets, club Google account):** Tally adds every payment to a sheet automatically.
   - Tournaments: https://docs.google.com/spreadsheets/d/1R6ds7kFWBCWtEkpluY1bugLDG_U0koYtZ6sclMEZ79U/edit (one tab per tournament)
@@ -49,7 +49,7 @@ Live at https://stanleywrestlingclub.org (domain bought on Cloudflare; DNS: four
 - February and March dues: $100 a month for the first wrestler, $75 for each additional
 - 7th-12th graders: no fees
 - Family fee if not volunteering: $300
-- Tournaments: $25 per wrestler
+- Tournaments: each tournament has its own price (see the tournament form notes)
 
 If a price changes in the form, change it in the Pay section and the "What does it cost after preseason?" answer too.
 
@@ -68,7 +68,7 @@ Every Mon/Tue/Thu in January (from Jan 5), February and March is marked as a pra
 ## Meets and tournaments
 - Dec 3 and Dec 10: Varsity duals at Stanley High School (high school events; listed so kids come support the team)
 - Thu Jan 7: Varsity dual and senior night at Stanley High School
-- Dec 30-31: Rumble on Red, Fargo ($25 per wrestler)
+- Dec 30-31: Rumble on Red, Fargo. Only the Individual (Thu Dec 31) is on the payment form: $40 if paid by Fri Dec 4, $50 from Dec 5. Duals (Dec 30) are paid by the club, not parents.
 - Sat Feb 6: Williston Tournament, Williston, ND
 - Fri Feb 26: NDUSA Team North Dakota Qualifier, Bismarck (top 2 qualify for Heartland National Duals)
 - Fri Feb 26: Center, ND
@@ -106,3 +106,9 @@ The full website lives at a hidden preview address: https://stanleywrestlingclub
 To launch: copy preview-d4597c3d/index.html over index.html, change "../photos/" back to "photos/",
 remove the noindex line, delete the preview folder, commit and push.
 The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR codes go straight to them.
+
+## Tournament payment form: per-tournament prices
+- Each tournament is one checkbox per wrestler (4 wrestlers) and adds its own price through a CALCULATE rule on the total.
+- Each checkbox can show the tournament's flyer: flyer images live in `flyers/` on this site (e.g. https://stanleywrestlingclub.org/flyers/rumble-on-the-red.jpg) and are set as the option image in Tally.
+- Tournaments without a price yet are hidden: Wrestler 1's options are hidden directly, Wrestlers 2-4 by one HIDE rule ("How many wrestlers IS NOT EMPTY"). To add a tournament: set its label and price, unhide its Wrestler 1 option, remove its three options from that HIDE rule, change its four "+ 25" rules to the real price, update its review/receipt text lines, and set its Amount formula on the Tournament sheet Totals tab.
+- Rumble on the Red: $40 until Dec 4. A one-time scheduled message fires into the build session at 12:05 AM Central on Dec 5 to raise it to $50 (form labels, 4 price rules, publish). The Totals tab already counts $40 for payments dated before Dec 5 and $50 after.

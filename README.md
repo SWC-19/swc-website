@@ -109,6 +109,6 @@ The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR c
 
 ## Tournament payment form: per-tournament prices
 - Each tournament is one checkbox per wrestler (4 wrestlers) and adds its own price through a CALCULATE rule on the total.
-- Each checkbox can show the tournament's flyer: flyer images live in `flyers/` on this site (e.g. https://stanleywrestlingclub.org/flyers/rumble-on-the-red.jpg) and are set as the option image in Tally.
+- Each checkbox shows a picture. Full flyers are too small to read on a phone, so the form uses a simple card per tournament (logo + name + date + place, no price because prices can change): `flyers/<tournament>-card.jpg`, built at 1200x800. The full flyer (`flyers/<tournament>.jpg`, rendered sharp from the PDF) is linked from the website schedule as "See the flyer".
 - Tournaments without a price yet are hidden: Wrestler 1's options are hidden directly, Wrestlers 2-4 by one HIDE rule ("How many wrestlers IS NOT EMPTY"). To add a tournament: set its label and price, unhide its Wrestler 1 option, remove its three options from that HIDE rule, change its four "+ 25" rules to the real price, update its review/receipt text lines, and set its Amount formula on the Tournament sheet Totals tab.
 - Rumble on the Red: $40 until Dec 4. A one-time scheduled message fires into the build session at 12:05 AM Central on Dec 5 to raise it to $50 (form labels, 4 price rules, publish). The Totals tab already counts $40 for payments dated before Dec 5 and $50 after.

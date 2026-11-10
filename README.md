@@ -120,3 +120,6 @@ The Tally forms (Registration, Pay Dues, Tournament) are open, so old flyer QR c
 - The club's donation/sponsor letter is at `forms/swc-donation-form.pdf` (https://stanleywrestlingclub.org/forms/swc-donation-form.pdf). Donate and sponsor are one website card (matching the letter, which leads with sponsor levels and treats any amount as a tax-deductible gift). The "Become a sponsor" card lists the levels from it (Gold $1,000, Silver $500, Bronze $250, Athlete $100), links the PDF, and says checks go to Stanley Wrestling Club, PO Box 268, Stanley, ND 58784 (mail only, not handed to a coach).
 - The "Be our first sponsor" banner was removed (the club already has sponsors). When the user sends the sponsor names/logos, add a "Thank you to our sponsors" list there.
 - No online giving on the site for now (user, Nov 2026: card fees would take part of each gift). Donations are by check with the form only.
+
+## Schedule section
+- Clicking Schedule lands on a practice schedule (one card per part of the season: Preseason, January, February & March) listing each group, days and times, then the "Next practice" card (filled in by script), then the tournament list and the month calendar. If practice times change, update both these cards and the calendar data (SCHED / ptimes in the script).

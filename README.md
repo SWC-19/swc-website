@@ -127,3 +127,19 @@ The Tally forms (Registration, Pay Dues, Tournament) are open.
 
 ## Parent handbook
 - Source: `handbook/handbook.html` (8 letter pages, club colors). Build the PDF with Playwright: open the file and `page.pdf({format:'Letter',printBackground:true,preferCSSPageSize:true})`. Facts come from the website (schedule, fees, contacts, tournament process). Draft sent to the user Nov 10 for review (PDF at handbook/SWC-Parent-Handbook.pdf); linked from the website (Parents section banner and Forms & links, the Register step, the footer) and from the registration thank-you screen (step 5). Youth headgear is optional; most tournaments use practice weigh-ins (exceptions: Rumble, ND Qualifier, State, Black Hills); brackets on FloWrestling.
+
+## Short links (use these on flyers and QR codes)
+Each folder holds a tiny page that forwards straight to the Tally form, so printed links never go stale. If a form is ever replaced, change the address in that one file and every flyer keeps working.
+
+| Short link | Opens |
+|---|---|
+| stanleywrestlingclub.org/register | Registration & Payment (tally.so/r/7Xq0xA) |
+| stanleywrestlingclub.org/dues | Pay Dues (tally.so/r/yXMWKp) |
+| stanleywrestlingclub.org/tournaments | Tournament entries (tally.so/r/YjP8xB) |
+| stanleywrestlingclub.org/coaches | Coach Check-In (tally.so/r/VpG7Jv) |
+
+Anything after a `?` is passed along to the form (for pre-filled links).
+
+## Tally emails (paid plan, set Nov 13, 2026)
+- Head coach gets an email for every registration, tournament payment, preseason + January sign-up and coach check-in (batteigerlawnservice@gmail.com). Subjects name the family and the amount.
+- Families get a confirmation email with a PDF copy of their form after registering, paying for a tournament, or using the preseason + January form. Replies go to the club Gmail.

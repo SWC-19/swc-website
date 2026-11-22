@@ -57,11 +57,11 @@ If a price changes in the form, change it in the Pay section and the "What does 
 | Month | Group | Days and times |
 |---|---|---|
 | Nov-Dec 2026 | Preseason | Mon, Tue, Thu 4:00-5:15 PM (dates listed by hand; no practice Nov 26, Dec 3 and Dec 10 (dual nights), Dec 24, 29, 31) |
-| Jan 2027 | Advanced girls | Mon, Tue, Thu 4:00-5:15 PM |
-| Jan 2027 | Advanced boys | Mon, Tue, Thu 5:15-6:30 PM |
+| Jan 5 - Feb 4, 2027 | Advanced girls | Mon, Tue, Thu 4:00-5:30 PM |
+| Jan 5 - Feb 4, 2027 | Advanced boys | Mon, Tue, Thu 5:30-7:00 PM |
 | Feb-Mar 2027 | Beginners | Tue, Thu 4:00-4:45 PM (from Feb 9) |
-| Feb-Mar 2027 | Advanced girls | Mon 4:00-5:15 PM; Tue, Thu 4:45-6:00 PM |
-| Feb-Mar 2027 | Advanced boys | Mon 5:15-6:30 PM; Tue, Thu 6:00-7:15 PM |
+| Feb 8 - Mar 2027 | Advanced girls | Mon 4:00-5:15 PM; Tue, Thu 4:45-6:00 PM |
+| Feb 8 - Mar 2027 | Advanced boys | Mon 5:15-6:30 PM; Tue, Thu 6:00-7:15 PM |
 
 Every Mon/Tue/Thu in January (from Jan 5), February and March is marked as a practice day, except Thu Jan 7 (varsity dual night, no practice). No practice on varsity dual nights.
 

@@ -273,8 +273,8 @@ html,body{overflow-x:clip;max-width:100%}
       <p class="pnote">No practice Thu, Jan 7 (varsity dual night).</p></div>
     <div class="card pblk"><div class="phd"><b>February &amp; March</b><span>Feb 8 – Mar 31</span></div>
       <div class="prow"><span class="pwho">Beginners<small>Start Tue, Feb 9</small></span><span class="pday">Tue, Thu</span><span class="ptm">4:00–4:45 PM</span></div>
-      <div class="prow"><span class="pwho">Advanced girls</span><span class="pday">Mon<br>Tue, Thu</span><span class="ptm">4:00–5:15 PM<br>4:45–6:00 PM</span></div>
-      <div class="prow"><span class="pwho">Advanced boys</span><span class="pday">Mon<br>Tue, Thu</span><span class="ptm">5:15–6:30 PM<br>6:00–7:15 PM</span></div></div>
+      <div class="prow"><span class="pwho">Advanced girls</span><span class="pday">Mon<br>Tue, Thu</span><span class="ptm">4:00–5:30 PM<br>4:45–6:00 PM</span></div>
+      <div class="prow"><span class="pwho">Advanced boys</span><span class="pday">Mon<br>Tue, Thu</span><span class="ptm">5:30–7:00 PM<br>6:00–7:15 PM</span></div></div>
   </div>
   <p class="schnote">Practice days and times are subject to change based on participation and the needs of the club. Changes are posted on Heja.</p>
   <h3 style="color:#fff;margin:4px 0 10px">Season calendar</h3>
@@ -422,16 +422,15 @@ html,body{overflow-x:clip;max-width:100%}
   var PRE=[['Practice','Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St']];
   var SCHED={'2026-10':PRE,'2026-11':PRE,
     '2027-0':[['Advanced girls','Mon, Tue, Thu · 4:00–5:30 PM'],['Advanced boys','Mon, Tue, Thu · 5:30–7:00 PM']],
-    '2027-1':[['Feb 1–4','Same as January: girls 4:00–5:30 PM, boys 5:30–7:00 PM'],['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 9)'],['Advanced girls','From Feb 8: Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','From Feb 8: Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']],
-    '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:15 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:15–6:30 PM · Tue, Thu 6:00–7:15 PM']]};
+    '2027-1':[['Feb 1–4','Same as January: girls 4:00–5:30 PM, boys 5:30–7:00 PM'],['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 9)'],['Advanced girls','From Feb 8: Mon 4:00–5:30 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','From Feb 8: Mon 5:30–7:00 PM · Tue, Thu 6:00–7:15 PM']],
+    '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:30 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:30–7:00 PM · Tue, Thu 6:00–7:15 PM']]};
   var FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
   function pchip(cls,lab,a,b){return '<span class="ev '+cls+'">'+lab+' '+a+'<span class="pend">–'+b+'</span></span>'}
   function pchips(y,m,d){
     if(y===2026)return pchip('p','Practice','4:00','5:15');
     var w=new Date(y,m,d).getDay(),r='';
-    if(m===0||(m===1&&d<5))return pchip('pg','Girls','4:00','5:30')+pchip('pb','Boys','5:30','7:00');
-    if(w===1)return pchip('pg','Girls','4:00','5:15')+pchip('pb','Boys','5:15','6:30');
+    if(m===0||w===1||(m===1&&d<5))return pchip('pg','Girls','4:00','5:30')+pchip('pb','Boys','5:30','7:00');
     r+=pchip('pn','<span class="lfull">Beginners</span><span class="lshort">Beg.</span>','4:00','4:45');
     return r+pchip('pg','Girls','4:45','6:00')+pchip('pb','Boys','6:00','7:15');
   }
@@ -466,8 +465,7 @@ html,body{overflow-x:clip;max-width:100%}
     if(x.getFullYear()===2026)return '4:00–5:15 PM';
     var w=x.getDay();
     if((x.getMonth()===1||x.getMonth()===2)&&w!==1&&!(x.getMonth()===1&&x.getDate()<9))return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
-    if(x.getMonth()===0||(x.getMonth()===1&&x.getDate()<5))return 'Girls 4:00–5:30, boys 5:30–7:00 PM';
-    return 'Girls 4:00–5:15, boys 5:15–6:30 PM';
+    return 'Girls 4:00–5:30, boys 5:30–7:00 PM';
   }
   var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),nx=list.filter(function(x){return x>=t})[0];
   if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · '+ptimes(nx)}

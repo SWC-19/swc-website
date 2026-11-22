@@ -39,7 +39,7 @@ Live at https://stanleywrestlingclub.org (domain bought on Cloudflare; DNS: four
 - **Practice location:** 104 S Main St, Stanley, ND 58784. Practice is drop-off only.
 
 ## Season dates
-- **Preseason:** starts Mon Nov 9, 2026. Mon/Tue/Thu 4:00-5:15 PM. 2nd-6th grade with 2+ years of experience. Runs Nov 9 - Dec 31. No fee. USA Wrestling membership required.
+- **Preseason:** starts Mon Nov 9, 2026. Mon/Tue/Thu 4:00-5:15 PM in Nov, 4:00-5:30 PM in Dec. 2nd-6th grade with 2+ years of experience. Runs Nov 9 - Dec 31. No fee. USA Wrestling membership required.
 - **Advanced boys and girls:** Tue Jan 5 - Mar 31, 2027. 2nd-6th grade with 2+ years of experience.
 - **Beginners:** Tue Feb 9 - Mar 31, 2027. Age 5 to 6th grade. First- and second-year wrestlers. Tue/Thu.
 
@@ -56,7 +56,7 @@ If a price changes in the form, change it in the Pay section and the "What does 
 ## Practice times
 | Month | Group | Days and times |
 |---|---|---|
-| Nov-Dec 2026 | Preseason | Mon, Tue, Thu 4:00-5:15 PM (dates listed by hand; no practice Nov 26, Dec 3 and Dec 10 (dual nights), Dec 24, 29, 31) |
+| Nov-Dec 2026 | Preseason | Mon, Tue, Thu 4:00-5:15 PM in Nov, 4:00-5:30 PM in Dec (dates listed by hand; no practice Nov 26, Dec 3 and Dec 10 (dual nights), Dec 24, 29, 31) |
 | Jan 5 - Feb 4, 2027 | Advanced girls | Mon, Tue, Thu 4:00-5:30 PM |
 | Jan 5 - Feb 4, 2027 | Advanced boys | Mon, Tue, Thu 5:30-7:00 PM |
 | Feb-Mar 2027 | Beginners | Tue, Thu 4:00-4:45 PM (from Feb 9) |

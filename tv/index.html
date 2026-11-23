@@ -56,6 +56,40 @@ body.hasnote .main{height:77vh;padding-top:2.6vh}
 body.hasnote .tn{padding:1.1vh 1.4vw;margin-bottom:1.2vh}
 body.hasnote h2{margin-bottom:1.6vh}
 body.hasnote .qr svg{width:18vh;height:18vh}
+.btns{display:none}
+/* Phones and other tall screens (the back-door sign's QR code opens this page): stack everything, let it scroll,
+   and swap the scan-to-pay code for buttons, since you can't scan your own screen. */
+@media (max-width:900px),(max-aspect-ratio:1/1){
+  html,body{height:auto;overflow:auto;cursor:auto}
+  html{background:var(--ink)}
+  body{min-height:100vh}
+  .top{height:auto;padding:12px max(16px,env(safe-area-inset-left,0px));gap:10px;flex-wrap:wrap}
+  .top img{width:40px;height:40px}
+  .top .club{font-size:20px}
+  .top .clock{margin-left:0;width:100%;font-size:16px;font-weight:600;color:var(--muted)}
+  .notice,body.hasnote .notice{height:auto;padding:12px 16px;font-size:22px;gap:10px;flex-wrap:wrap}
+  .notice small{font-size:13px;padding:3px 8px}
+  .main,body.hasnote .main{height:auto;grid-template-columns:1fr;gap:28px;padding:20px max(16px,env(safe-area-inset-right,0px)) 32px max(16px,env(safe-area-inset-left,0px))}
+  h2,body.hasnote h2{font-size:24px;margin-bottom:12px}
+  .days{gap:10px}
+  .day{padding:10px 14px;gap:14px;border-radius:10px}
+  .day .dt{width:56px}
+  .day .dt span{font-size:13px}
+  .day .dt em{font-size:30px}
+  .day .tm div{font-size:20px;white-space:normal}
+  .day.off .tm small{font-size:14px}
+  .tag{font-size:11px;padding:2px 6px}
+  .none{font-size:18px}
+  .addr{margin-top:16px;font-size:15px}
+  .tn,body.hasnote .tn{padding:14px;border-radius:10px;margin-bottom:12px}
+  .tn .nm{font-size:22px}
+  .tn .when,.tn .wi,.tn .pay,.tn .free{font-size:16px}
+  .tn .left{font-size:13px;padding:1px 8px}
+  .qr{display:none}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .btn{display:inline-block;padding:10px 16px;border-radius:99px;background:#26324F;color:#fff;font-weight:700;font-size:16px;text-decoration:none}
+  .btn.pay{background:var(--red)}
+}
 </style></head>
 <body>
 <div class="top"><img src="/handbook/logo.png" alt=""><div class="club">Stanley Wrestling Club</div><div class="clock" id="clock"></div></div>
@@ -129,6 +163,8 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
       var info='<div class="nm">'+m.name+'</div><div class="when">'+when(m.lines[0]||'')+'</div>'+
         (wi?'<div class="wi">Team weigh-in: '+wi+'</div>':'')+
         (pay?'<div class="pay">'+pay+'</div>':free?'<div class="free">No fee</div>':'');
+      var btns=(canPay?'<a class="btn pay" href="https://stanleywrestlingclub.org/tournaments" target="_blank" rel="noopener">Pay online</a>':'')+(m.flyer?'<a class="btn" href="'+m.flyer+'" target="_blank" rel="noopener">See the flyer</a>':'');
+      info+=btns?'<div class="btns">'+btns+'</div>':'';
       return canPay?'<div class="tn paycard"><div class="info">'+info+'</div><div class="qr">'+QR+'<b>Scan to pay</b></div></div>':'<div class="tn">'+info+'</div>'}).join('')
       :'<div class="none">No tournaments coming up. Watch Heja for updates.</div>';
   }
@@ -139,9 +175,10 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
   function loadMeets(){return get('/').then(function(h){
     var doc=new DOMParser().parseFromString(h,'text/html');
     MEETS=[].map.call(doc.querySelectorAll('.meet[data-end]'),function(m){
-      var sb=m.querySelector('.sub');if(sb)[].forEach.call(sb.querySelectorAll('.goheja,a'),function(x){x.remove()});
+      var sb=m.querySelector('.sub'),fl=sb&&sb.querySelector('a[href*="flyers/"]'),flyer=fl?new URL(fl.getAttribute('href'),'https://stanleywrestlingclub.org/').href:'';
+      if(sb)[].forEach.call(sb.querySelectorAll('.goheja,a'),function(x){x.remove()});
       var lines=sb?sb.innerHTML.split(/<br\s*\/?>/).map(function(x){var e=document.createElement('div');e.innerHTML=x;return e.textContent.replace(/\s*·\s*$/,'').trim()}).filter(Boolean):[];
-      return {end:m.getAttribute('data-end'),name:m.querySelector('.nm').textContent.trim(),lines:lines,pay:!!m.querySelector('.paylink')}});
+      return {end:m.getAttribute('data-end'),name:m.querySelector('.nm').textContent.trim(),lines:lines,pay:!!m.querySelector('.paylink'),flyer:flyer}});
   })}
   function loadNote(){if(!NOTICE_CSV){NOTE='';return Promise.resolve()}
     return get(NOTICE_CSV).then(function(csv){

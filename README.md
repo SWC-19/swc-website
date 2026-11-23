@@ -87,14 +87,23 @@ Every Mon/Tue/Thu in January (from Jan 5), February and March is marked as a pra
 - Apr 9-11: Black Hills Nationals, James Kjerstad Event Center, 915 E. Centre Street, Rapid City, SD. Fri Apr 9 weigh-ins 12U and under; Sat Apr 10 free clinic and competition 12U and under; Sun Apr 11 weigh-ins and competition 14U and up (times TBA). AAU card required; families register and pay on their own.
 
 ## Changing dates (calendar, countdown, next practice)
-All three read from the script near the bottom of `index.html`:
-- `EVENTS`: season starts, duals, tournaments and deadlines. The season calendar shows them, and the countdown at the top of the page counts down to the next one. Colors: `s` season starts (green), `d` varsity dual (red), `r` tournament (black), `k` deadline (purple). Months are numbered from 0 (Jan = 0, Dec = 11). Use `e` for the last day of a multi-day event.
-- `PRACTICE`: which days are practice days (blue on the calendar). Nov and Dec are listed by hand; Jan-Mar are every Mon/Tue/Thu.
-- `SCHED`: the practice times listed under each month.
-- `CAL_MONTHS`: which months have a button above the calendar (now Nov-Mar).
-- The "Next practice" card follows `PRACTICE`; its times come from the `ptimes` function.
+Practice days and times live in `schedule.js` (one place, read by the homepage calendar, the "Next practice" card and the club TV):
+- `PRACTICE`: which days are practice days (blue on the calendar). Nov and Dec are listed by hand; Jan-Mar are every Mon/Tue/Thu. Remove a day off with `.filter`.
+- `SCHED`: the practice times listed under each month on the calendar.
+- `times(y,m,d)`: the groups and times for one practice day. The calendar chips, the "Next practice" card and the TV all use it.
 
-The meets list in the Schedule section is plain HTML. When a tournament changes, update it there and in `EVENTS`.
+Still in the script near the bottom of `index.html`:
+- `EVENTS`: season starts, duals, tournaments and deadlines. The season calendar shows them, and the countdown at the top of the page counts down to the next one. Colors: `s` season starts (green), `d` varsity dual (red), `r` tournament (black), `k` deadline (purple). Months are numbered from 0 (Jan = 0, Dec = 11). Use `e` for the last day of a multi-day event.
+- `CAL_MONTHS`: which months have a button above the calendar (now Nov-Mar).
+
+The meets list in the Schedule section is plain HTML. When a tournament changes, update it there and in `EVENTS`. The club TV reads this list too (name, `data-end`, first line of details, and the red PAY button).
+
+## Club TV (/tv)
+- `tv/index.html`: one screen for the TV at the club (1920x1080, Fire TV Stick with the Silk browser). Not linked from the site.
+- Left: this week's practice days and group times (from `schedule.js`; from Saturday on it shows next week). Right: the next tournament(s) from the homepage meets list, skipping varsity duals. A tournament with a PAY button gets a QR code to stanleywrestlingclub.org/tournaments (the payment form).
+- Red notice bar: cell A2 of the "SWC TV notice" Google Sheet, published to the web as CSV; paste that CSV link into `NOTICE_CSV`. Checked every 2 minutes; an empty cell hides the bar.
+- Refreshes data every 15 minutes and re-renders every minute; if the Wi-Fi or site is down it keeps the last good screen. Reloads itself around 3 AM only if the site answers.
+- After a power cut the Fire Stick doesn't reopen Silk on its own: someone opens Silk (it remembers the page).
 
 ## Still to do
 - Practice schedule after March, and any days off (holidays, tournament weekends).

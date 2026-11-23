@@ -389,9 +389,9 @@ html,body{overflow-x:clip;max-width:100%}
   <div class="fine">© 2026 Stanley Wrestling Club. Photos and video of wrestlers may be taken at club events and shared on the club's Facebook page.</div>
 </div></footer>
 
+<script src="/schedule.js"></script>
 <script>
 (function(){
-  var practice={11:[9,10,12,16,17,19,23,24,30],12:[1,7,8,14,15,17,21,22,28]};
   var CAL_MONTHS=[[2026,10],[2026,11],[2027,0],[2027,1],[2027,2]];
   // Calendar events. The countdown at the top of the page counts down to the next one.
   // m is the month number minus 1 (Jan=0 ... Dec=11). e is the last day for events that run more than one day.
@@ -416,22 +416,13 @@ html,body{overflow-x:clip;max-width:100%}
     {y:2027,m:2,d:13,e:14,c:'r',t:'Iron Eagle Tournament, Sidney, MT',s:'Iron Eagle'},
     {y:2027,m:2,d:26,e:27,c:'r',t:'NDUSA State Duals and Individuals, Bismarck',s:'State'}
   ];
-  function mtwth(y,m,from){var r=[],n=new Date(y,m+1,0).getDate();for(var d=from;d<=n;d++){var w=new Date(y,m,d).getDay();if(w===1||w===2||w===4)r.push(d)}return r}
-  // Days off: remove a day with .filter, e.g. Jan 7 (varsity dual night) below.
-  var PRACTICE={'2026-10':practice[11],'2026-11':practice[12],'2027-0':mtwth(2027,0,5).filter(function(d){return d!==7}),'2027-1':mtwth(2027,1,1),'2027-2':mtwth(2027,2,1)};
-  var SCHED={'2026-10':[['Practice','Mon, Tue, Thu · 4:00–5:15 PM · 104 S Main St']],'2026-11':[['Practice','Mon, Tue, Thu · 4:00–5:30 PM · 104 S Main St']],
-    '2027-0':[['Advanced girls','Mon, Tue, Thu · 4:00–5:30 PM'],['Advanced boys','Mon, Tue, Thu · 5:30–7:00 PM']],
-    '2027-1':[['Feb 1–4','Same as January: girls 4:00–5:30 PM, boys 5:30–7:00 PM'],['Beginners','Tue, Thu · 4:00–4:45 PM (starts Feb 9)'],['Advanced girls','From Feb 8: Mon 4:00–5:30 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','From Feb 8: Mon 5:30–7:00 PM · Tue, Thu 6:00–7:15 PM']],
-    '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:30 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:30–7:00 PM · Tue, Thu 6:00–7:15 PM']]};
+  var PRACTICE=SWC.PRACTICE,SCHED=SWC.SCHED;
   var FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
   function esc(x){return x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
   function pchip(cls,lab,a,b){return '<span class="ev '+cls+'">'+lab+' '+a+'<span class="pend">–'+b+'</span></span>'}
   function pchips(y,m,d){
-    if(y===2026)return pchip('p','Practice','4:00',m===11?'5:30':'5:15');
-    var w=new Date(y,m,d).getDay(),r='';
-    if(m===0||w===1||(m===1&&d<5))return pchip('pg','Girls','4:00','5:30')+pchip('pb','Boys','5:30','7:00');
-    r+=pchip('pn','<span class="lfull">Beginners</span><span class="lshort">Beg.</span>','4:00','4:45');
-    return r+pchip('pg','Girls','4:45','6:00')+pchip('pb','Boys','6:00','7:15');
+    var C={Practice:'p',Girls:'pg',Boys:'pb',Beginners:'pn'};
+    return SWC.times(y,m,d).map(function(r){return pchip(C[r[0]]||'p',r[0]==='Beginners'?'<span class="lfull">Beginners</span><span class="lshort">Beg.</span>':r[0],r[1],r[2])}).join('');
   }
   function monthHTML(y,m){
     var days=new Date(y,m+1,0).getDate(),start=new Date(y,m,1).getDay(),mark={},rank={k:5,s:4,r:3,d:2,p:1};
@@ -461,10 +452,9 @@ html,body{overflow-x:clip;max-width:100%}
   var M=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'],D=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MN=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   var list=[];Object.keys(PRACTICE).forEach(function(k){var ym=k.split('-');PRACTICE[k].forEach(function(d){list.push(new Date(+ym[0],+ym[1],d))})});list.sort(function(a,b){return a-b});
   function ptimes(x){
-    if(x.getFullYear()===2026)return x.getMonth()===11?'4:00–5:30 PM':'4:00–5:15 PM';
-    var w=x.getDay();
-    if((x.getMonth()===1||x.getMonth()===2)&&w!==1&&!(x.getMonth()===1&&x.getDate()<9))return 'Beginners 4:00–4:45, girls 4:45–6:00, boys 6:00–7:15 PM';
-    return 'Girls 4:00–5:30, boys 5:30–7:00 PM';
+    var r=SWC.times(x.getFullYear(),x.getMonth(),x.getDate());
+    if(r.length===1)return r[0][1]+'–'+r[0][2]+' PM';
+    return r.map(function(g,i){return (i?g[0].toLowerCase():g[0])+' '+g[1]+'–'+g[2]}).join(', ')+' PM';
   }
   var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),nx=list.filter(function(x){return x>=t})[0];
   if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · '+ptimes(nx)}

@@ -31,7 +31,13 @@ h2{margin:0 0 2.4vh;font-family:var(--display);font-weight:800;text-transform:up
 .day.past{opacity:.35}
 .tag{display:inline-block;background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:2.2vh;padding:.3vh .8vw;border-radius:99vh;margin-top:.8vh}
 .none{font-size:4vh;color:var(--muted);margin-top:2vh}
-.addr{margin-top:auto;font-size:2.8vh;color:var(--muted)}
+.addr{margin-top:auto;font-size:2.7vh;color:var(--muted);line-height:1.4}
+.addr b{color:var(--txt)}
+.day.off{background:transparent;border-style:dashed}
+.day.off .tm div{color:var(--muted)}
+.day.off .tm small{font-family:var(--body);font-weight:500;font-size:2.8vh;color:var(--muted)}
+.tn .wi{font-size:3vh;margin-top:.8vh;font-weight:700;color:#FFE28A}
+.tn .left{display:inline-block;margin-left:.6vw;background:var(--red);color:#fff;border-radius:99vh;padding:.1vh .8vw;font-size:2.8vh}
 .col{display:flex;flex-direction:column;min-height:0}
 .tn{background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:1.6vh 1.6vw;margin-bottom:1.6vh}
 .tn .nm{font-family:var(--display);font-weight:800;font-size:4.4vh;line-height:1.05}
@@ -55,7 +61,7 @@ body.hasnote .qr svg{width:18vh;height:18vh}
 <div class="top"><img src="/handbook/logo.png" alt=""><div class="club">Stanley Wrestling Club</div><div class="clock" id="clock"></div></div>
 <div class="notice" id="notice" hidden><small>NOTICE</small><span id="noticeTxt"></span></div>
 <div class="main">
-  <div class="col"><h2 id="ph">Practice this week</h2><div class="days" id="days"></div><div class="addr">104 S Main St, Stanley · Drop off 5 minutes before practice, pick up on time</div></div>
+  <div class="col"><h2 id="ph">Practice this week</h2><div class="days" id="days"></div><div class="addr">104 S Main St, Stanley · Drop off 5 minutes before practice, pick up on time<br>Team news is on the Heja app · team code <b>GR986946</b></div></div>
   <div class="col"><h2 id="th">Next tournament</h2><div id="tourn"></div>
   </div>
 </div>
@@ -81,11 +87,18 @@ var NOTICE_CSV='';
     var t=today(),start=new Date(t);
     start.setDate(t.getDate()-t.getDay()+(t.getDay()===6?7:0)); // Sunday of this week; on Saturday, next week
     $('ph').textContent=t.getDay()===6?'Practice next week':'Practice this week';
-    var html='';
+    var html='',all=[];
+    Object.keys(SCHED.PRACTICE).forEach(function(k){var ym=k.split('-');SCHED.PRACTICE[k].forEach(function(x){all.push(new Date(+ym[0],+ym[1],x))})});
+    all.sort(function(a,b){return a-b});var first=all[0],last=all[all.length-1];
     for(var i=0;i<7;i++){
       var d=new Date(start);d.setDate(start.getDate()+i);
       var list=SCHED.PRACTICE[d.getFullYear()+'-'+d.getMonth()]||[];
-      if(list.indexOf(d.getDate())<0)continue;
+      if(list.indexOf(d.getDate())<0){
+        // a Mon/Tue/Thu inside the season with no practice: say so, so parents don't wonder
+        var w=d.getDay(),key=d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate();
+        if((w===1||w===2||w===4)&&d>=first&&d<=last){var why=(SCHED.OFF||{})[key]||'';
+          html+='<div class="day off'+(d<t?' past':'')+'"><div class="dt"><span>'+DAYS[w]+'</span><em>'+d.getDate()+'</em></div><div class="tm"><div><span>No practice</span><small>'+why+'</small></div></div></div>'}
+        continue}
       var rows=SCHED.times(d.getFullYear(),d.getMonth(),d.getDate()),isT=d.getTime()===t.getTime();
       html+='<div class="day'+(isT?' today':d<t?' past':'')+'"><div class="dt"><span>'+DAYS[d.getDay()]+'</span><em>'+d.getDate()+'</em>'+(isT?'<span class="tag">TODAY</span>':'')+'</div><div class="tm">'+
         rows.map(function(r){return '<div><b>'+(r[0]==='Practice'?'':r[0])+'</b><span>'+r[1]+'–'+r[2]+' PM</span></div>'}).join('')+'</div></div>';
@@ -94,6 +107,10 @@ var NOTICE_CSV='';
   }
   // ---- next tournament (from the homepage "Meets & tournaments" list) ----
   function when(x){var p=x.split(' · ').filter(function(s){return /\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)|\d ?(AM|PM)|, [A-Z]{2}\b/.test(s)});return (p.length?p:[x]).join(' · ')}
+  // "pay online by Thu, Dec 3" -> "3 days left" / "Last day to pay"
+  function deadline(x){var m=x.match(/by\s+\w+,\s+([A-Z][a-z]{2})\w*\s+(\d+)/);if(!m)return '';var mi=MON.indexOf(m[1]);if(mi<0)return '';
+    var t=today(),y=t.getFullYear(),d=new Date(y,mi,+m[2]);if(d<t&&t-d>180*864e5)d=new Date(y+1,mi,+m[2]);
+    var n=Math.round((d-t)/864e5);return n<0?'closed':n===0?'Last day to pay':n===1?'1 day left':n+' days left'}
   function renderTourn(){
     if(!MEETS)return;
     var t=today();
@@ -102,11 +119,17 @@ var NOTICE_CSV='';
     if(ms[0]){var b=ms[0].end.split('-'),b0=new Date(+b[0],+b[1]-1,+b[2]);
       list=ms.filter(function(m){var a=m.end.split('-');return new Date(+a[0],+a[1]-1,+a[2])-b0<=2*864e5}).slice(0,2)}
     $('th').textContent=list.length>1?'Next tournaments':'Next tournament';
+    var shownWI={};
     $('tourn').innerHTML=list.length?list.map(function(m){
       var payLine=m.lines.filter(function(x){return /pay online by|\$\d/.test(x)})[0],free=m.lines.some(function(x){return /^No fee/i.test(x)});
+      var wl=m.lines.filter(function(x){return /weighs? in/i.test(x)})[0],wi='';
+      if(wl){wi=wl.split('. ')[0].replace(/^.*?weighs? in[^:]*:\s*/i,'').replace(/\.$/,'');if(shownWI[wi])wi='';else shownWI[wi]=1}
+      var pay='',canPay=m.pay;
+      if(m.pay&&payLine){pay=payLine.split('. ')[0].replace(/\.$/,'');var dl=deadline(pay);if(dl==='closed'){canPay=false;pay=''}else if(dl)pay+=' <span class="left">'+dl+'</span>'}
       var info='<div class="nm">'+m.name+'</div><div class="when">'+when(m.lines[0]||'')+'</div>'+
-        (m.pay&&payLine?'<div class="pay">'+payLine.split('. ')[0].replace(/\.$/,'')+'</div>':free?'<div class="free">No fee</div>':'');
-      return m.pay?'<div class="tn paycard"><div class="info">'+info+'<div class="when">Scan the code to pay online</div></div><div class="qr">'+QR+'<b>Scan to pay</b></div></div>':'<div class="tn">'+info+'</div>'}).join('')
+        (wi?'<div class="wi">Team weigh-in: '+wi+'</div>':'')+
+        (pay?'<div class="pay">'+pay+'</div>':free?'<div class="free">No fee</div>':'');
+      return canPay?'<div class="tn paycard"><div class="info">'+info+'</div><div class="qr">'+QR+'<b>Scan to pay</b></div></div>':'<div class="tn">'+info+'</div>'}).join('')
       :'<div class="none">No tournaments coming up. Watch Heja for updates.</div>';
   }
   function renderNote(){$('noticeTxt').textContent=NOTE;$('notice').hidden=!NOTE;document.body.classList.toggle('hasnote',!!NOTE)}

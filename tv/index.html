@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>SWC Club TV</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;700&display=swap">
+<style>
+/* Club TV screen. Built for a 1920x1080 TV; everything scales with the screen width. */
+:root{--blue:#0B4BB5;--blue2:#1F63D6;--red:#C8102E;--ink:#0B1220;--panel:#121C33;--line:#26324F;--txt:#F4F6FB;--muted:#A9B4CC;--green:#17794A;
+--display:'Barlow Condensed','Arial Narrow',sans-serif;--body:'Barlow',system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--ink);color:var(--txt);font-family:var(--body);overflow:hidden;cursor:none}
+.top{height:11vh;display:flex;align-items:center;gap:1.6vw;padding:0 3vw;background:#060B16;border-bottom:.5vh solid var(--red)}
+.top img{height:8vh;width:8vh}
+.top .club{font-family:var(--display);font-weight:800;font-size:4.2vh;letter-spacing:.04em;text-transform:uppercase}
+.top .clock{margin-left:auto;text-align:right;font-family:var(--display);font-weight:800;font-size:5vh;line-height:1}
+.top .clock small{display:block;font-family:var(--body);font-weight:500;font-size:2.3vh;color:var(--muted)}
+.stage{position:relative;height:83vh}
+.slide{position:absolute;inset:0;padding:4vh 4vw;opacity:0;transition:opacity .8s;display:flex;flex-direction:column}
+.slide.on{opacity:1}
+.kick{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#8FB0F0;font-size:3.4vh}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:11vh;line-height:.95;margin:.6vh 0 2.4vh}
+h1 .today{color:#fff;background:var(--red);padding:0 1.2vw;border-radius:1vh}
+.groups{display:flex;flex-direction:column;gap:1.6vh}
+.grp{display:flex;align-items:center;justify-content:space-between;background:var(--panel);border:1px solid var(--line);border-left:1.2vh solid var(--blue2);border-radius:1.4vh;padding:2vh 2.4vw}
+.grp b{font-family:var(--display);font-weight:800;font-size:6vh;text-transform:uppercase}
+.grp span{font-family:var(--display);font-weight:800;font-size:7.5vh}
+.grp.g{border-left-color:#C2409A}.grp.n{border-left-color:#13A1AC}
+.where{margin-top:auto;font-size:3vh;color:var(--muted)}
+.where b{color:var(--txt)}
+.week{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;margin-top:1vh}
+.wk{background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:2vh 1.6vw}
+.wk h3{margin:0 0 .4vh;font-family:var(--display);font-weight:800;font-size:6vh;line-height:1.05;text-transform:uppercase}
+.wk small{display:block;font-size:2.8vh;color:var(--muted);margin-bottom:1.4vh}
+.wk p{margin:1vh 0 0;font-size:3vh;color:var(--muted)}
+.wk p b{display:block;font-family:var(--display);font-weight:800;font-size:5.4vh;color:var(--txt);line-height:1.1}
+.wk.today{border-color:var(--red);box-shadow:0 0 0 .4vh var(--red) inset}
+.meets{display:flex;flex-direction:column;gap:1.6vh}
+.mt{display:flex;gap:2vw;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:1.6vh 2vw}
+.mt .d{flex:none;width:10vh;text-align:center;background:var(--blue);border-radius:1vh;padding:1vh 0;font-family:var(--display);font-weight:800;line-height:1}
+.mt .d span{display:block;font-size:2.6vh;letter-spacing:.08em}
+.mt .d em{display:block;font-style:normal;font-size:6vh}
+.mt .nm{font-family:var(--display);font-weight:800;font-size:4.6vh;line-height:1.05}
+.mt .sb{font-size:2.6vh;color:var(--muted);margin-top:.5vh;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mt .sb b{color:var(--txt)}
+.mt .pill{margin-left:auto;flex:none;font-family:var(--display);font-weight:800;font-size:3vh;padding:.8vh 1.4vw;border-radius:99vh;background:var(--red)}
+.mt .pill.ok{background:var(--green)}
+.notes{display:flex;flex-direction:column;gap:2vh}
+.note{background:var(--panel);border:1px solid var(--line);border-left:1.2vh solid var(--red);border-radius:1.4vh;padding:2.6vh 2.4vw;font-size:4.4vh;line-height:1.25}
+.note b{font-weight:700}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;margin-top:1vh}
+.lk{background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:3vh 1.6vw;text-align:center}
+.lk b{display:block;font-family:var(--display);font-weight:800;font-size:5.4vh;text-transform:uppercase}
+.lk span{display:block;font-size:3.2vh;color:#8FB0F0;margin-top:1vh;font-weight:700}
+.heja{margin-top:3vh;display:flex;gap:2vw;align-items:center;justify-content:space-between;background:var(--blue);border-radius:1.4vh;padding:2.4vh 2.4vw;font-size:3.6vh}
+.heja b{font-family:var(--display);font-weight:800;font-size:6vh;letter-spacing:.06em}
+.bar{height:6vh;display:flex;align-items:center;justify-content:center;gap:1vw;background:#060B16}
+.bar i{width:1.4vh;height:1.4vh;border-radius:50%;background:#3A4766}
+.bar i.on{background:#fff}
+.empty{font-size:4vh;color:var(--muted)}
+</style></head>
+<body>
+<div class="top"><img src="/handbook/logo.png" alt=""><div class="club">Stanley Wrestling Club</div><div class="clock" id="clock"></div></div>
+<div class="stage" id="stage"></div>
+<div class="bar" id="bar"></div>
+<iframe id="src" src="/" title="" style="position:absolute;width:1200px;height:800px;left:-5000px;top:0;visibility:hidden" aria-hidden="true"></iframe>
+<script>
+/* ===== ANNOUNCEMENTS =====
+   Edit this list to change the announcements slide. "until" (optional) is the last day it shows (YYYY-MM-DD).
+   Practice times and tournaments are NOT typed here: they come from the website automatically. */
+var NOTES=[
+  {t:'<b>Practice is drop-off only.</b> Drop your wrestler off 5 minutes before practice starts and pick them up on time.'},
+  {t:'<b>Rumble on the Red individual tournament:</b> pay online by <b>Thu, Dec 3</b> at stanleywrestlingclub.org/tournaments, then click Going on Heja.',until:'2026-12-03'},
+  {t:'<b>Rumble team weigh-in:</b> Tue, Dec 29 at 6:15 PM, 2nd level of the FARGODOME. Every wrestler must be there.',until:'2026-12-29'}
+];
+var SLIDE_SECONDS=15;
+
+(function(){
+  var DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function today(){var d=new Date();d.setHours(0,0,0,0);return d}
+  function clock(){var n=new Date(),h=n.getHours(),m=n.getMinutes(),ap=h<12?'AM':'PM';h=h%12||12;
+    document.getElementById('clock').innerHTML=h+':'+(m<10?'0':'')+m+' '+ap+'<small>'+DAYS[n.getDay()]+', '+MON[n.getMonth()]+' '+n.getDate()+'</small>'}
+  clock();setInterval(clock,10000);
+  // Reload every 30 minutes (and just after midnight) so website changes show up without touching the TV.
+  setTimeout(function(){location.reload()},30*60*1000);
+
+  function seasonYear(mon){var t=today(),start=t.getMonth()>=6?t.getFullYear():t.getFullYear()-1;return mon>=6?start:start+1}
+  function parseMD(s){var m=s.trim().match(/^([A-Za-z]{3})\w*\s+(\d+)/);if(!m)return null;var mi=MON.indexOf(m[1]);return mi<0?null:new Date(seasonYear(mi),mi,+m[2])}
+  function cls(lab){lab=lab.toLowerCase();return lab.indexOf('girl')>=0?'g':lab.indexOf('beg')>=0?'n':''}
+  function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+
+  function build(doc){
+    var slides=[],t=today();
+    // 1) Next practice, from the website's "Next practice" card
+    var np=doc.getElementById('np-t'),npm=doc.getElementById('np-m'),npd=doc.getElementById('np-d');
+    if(np&&np.textContent.trim()){
+      var parts=np.textContent.split(' · '),dateTxt=parts[0],times=(parts[1]||'').trim();
+      var dt=parseMD(dateTxt.replace(/^\w+,\s*/,''));
+      var isToday=dt&&dt.getTime()===t.getTime();
+      var tom=new Date(t);tom.setDate(tom.getDate()+1);var isTom=dt&&dt.getTime()===tom.getTime();
+      var pm=/PM\s*$/.test(times);
+      var rows=times.replace(/\s*PM\s*$/,'').split(/,\s*/).map(function(g){
+        var m=g.match(/^(.*?)\s*(\d{1,2}:\d{2}–\d{1,2}:\d{2})$/);
+        return m?{l:m[1]||'Practice',tm:m[2]+(pm?' PM':'')}:{l:'Practice',tm:g};
+      });
+      var head=isToday?'<span class="today">Today</span>':isTom?'Tomorrow':dateTxt;
+      slides.push('<div class="kick">'+(isToday?'Practice today · '+dateTxt:'Next practice')+'</div><h1>'+head+'</h1><div class="groups">'+
+        rows.map(function(r){return '<div class="grp '+cls(r.l)+'"><b>'+cap(r.l)+'</b><span>'+r.tm+'</span></div>'}).join('')+
+        '</div><div class="where">All practices at <b>104 S Main St, Stanley</b> · Drop off 5 minutes before your group starts</div>');
+    }else{
+      slides.push('<div class="kick">Practice</div><h1>No practices scheduled</h1><p class="empty">Watch Heja for next season’s dates.</p>');
+    }
+    // 2) This part of the season's practice schedule, from the website's practice cards
+    var cards=[].slice.call(doc.querySelectorAll('.pblk')),cur=null;
+    cards.forEach(function(c){var r=c.querySelector('.phd span');if(!r)return;var ab=r.textContent.split('–');var a=parseMD(ab[0]),b=parseMD(ab[1]||'');if(a&&b&&t>=a&&t<=b)cur=c});
+    if(!cur&&cards.length){cards.forEach(function(c){var r=c.querySelector('.phd span');var a=r&&parseMD(r.textContent.split('–')[0]);if(!cur&&a&&a>t)cur=c})}
+    if(cur){
+      var title=cur.querySelector('.phd b').textContent,range=cur.querySelector('.phd span').textContent;
+      var rws=[].slice.call(cur.querySelectorAll('.prow')).map(function(r){
+        var who=r.querySelector('.pwho').cloneNode(true),sm=who.querySelector('small'),smt=sm?sm.textContent:'';if(sm)sm.remove();
+        var dys=r.querySelector('.pday').innerHTML.split(/<br\s*\/?>/),tms=r.querySelector('.ptm').innerHTML.split(/<br\s*\/?>/);
+        var lines=tms.map(function(tm,i){return '<p>'+(dys[i]||dys[0])+'<b>'+tm+'</b></p>'}).join('');
+        return '<div class="wk"><h3>'+who.textContent+'</h3>'+(smt?'<small>'+smt+'</small>':'')+lines+'</div>'}).join('');
+      var pn=cur.querySelector('.pnote');
+      slides.push('<div class="kick">Practice schedule · '+range+'</div><h1>'+title+'</h1><div class="week">'+rws+'</div>'+(pn?'<div class="where">'+pn.textContent+'</div>':''));
+    }
+    // 3) Upcoming meets & tournaments, from the website list
+    var meets=[].slice.call(doc.querySelectorAll('.meet[data-end]')).filter(function(m){var p=m.getAttribute('data-end').split('-');return new Date(+p[0],+p[1]-1,+p[2])>=t}).slice(0,4);
+    if(meets.length){
+      slides.push('<div class="kick">Coming up</div><h1>Meets &amp; tournaments</h1><div class="meets">'+meets.map(function(m){
+        var sb=m.querySelector('.sub').cloneNode(true);[].forEach.call(sb.querySelectorAll('.goheja,a'),function(x){x.remove()});
+        var txt=sb.innerHTML.replace(/\s*·\s*(<br>|$)/g,'$1').split(/<br\s*\/?>/).filter(function(x){return x.replace(/<[^>]+>/g,'').trim()}).slice(0,2).join('<br>');
+        var pill=m.querySelector('.pill'),pl='';
+        if(pill){pl=pill.classList.contains('paylink')?'<span class="pill">PAY ONLINE</span>':'<span class="pill'+(pill.classList.contains('ok')?' ok':'')+'">'+pill.textContent+'</span>'}
+        return '<div class="mt"><div class="d"><span>'+m.querySelector('.date span').textContent+'</span><em>'+m.querySelector('.date em').textContent+'</em></div><div><div class="nm">'+m.querySelector('.nm').textContent+'</div><div class="sb">'+txt+'</div></div>'+pl+'</div>'}).join('')+'</div>');
+    }
+    // 4) Announcements
+    var notes=NOTES.filter(function(n){if(!n.until)return true;var p=n.until.split('-');return new Date(+p[0],+p[1]-1,+p[2])>=t});
+    if(notes.length)slides.push('<div class="kick">Announcements</div><h1>Parents, please note</h1><div class="notes">'+notes.map(function(n){return '<div class="note">'+n.t+'</div>'}).join('')+'</div>');
+    // 5) Links and Heja
+    slides.push('<div class="kick">Everything is online</div><h1 style="font-size:9vh;text-transform:none">stanleywrestlingclub.org</h1><div class="links">'+
+      '<div class="lk"><b>Register</b><span>/register</span></div><div class="lk"><b>Pay dues</b><span>/dues</span></div><div class="lk"><b>Tournaments</b><span>/tournaments</span></div></div>'+
+      '<div class="heja"><div>Team messages and schedule changes are on the Heja app. Join with team code</div><b>GR986946</b></div>');
+    return slides;
+  }
+
+  var idx=0,els=[],timer;
+  function show(i){els.forEach(function(e,j){e.classList.toggle('on',j===i)});[].forEach.call(document.querySelectorAll('#bar i'),function(d,j){d.classList.toggle('on',j===i)})}
+  function render(slides){
+    var st=document.getElementById('stage');st.innerHTML=slides.map(function(s){return '<section class="slide">'+s+'</section>'}).join('');
+    document.getElementById('bar').innerHTML=slides.map(function(){return '<i></i>'}).join('');
+    els=[].slice.call(st.children);idx=0;show(0);clearInterval(timer);
+    timer=setInterval(function(){idx=(idx+1)%els.length;show(idx)},SLIDE_SECONDS*1000);
+  }
+  var f=document.getElementById('src');
+  f.addEventListener('load',function(){setTimeout(function(){try{render(build(f.contentDocument))}catch(e){render(['<div class="kick">Stanley Wrestling Club</div><h1>Welcome</h1><p class="empty">Schedule is loading…</p>'])}},500)});
+  // Midnight refresh so "Today" moves to the next day
+  var n=new Date(),mid=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,1);setTimeout(function(){location.reload()},mid-n);
+  window.__tvShow=function(i){clearInterval(timer);show(i)};
+})();
+</script>
+</body></html>

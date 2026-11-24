@@ -119,8 +119,8 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
   function renderDays(){
     if(!SCHED)return;
     var t=today(),start=new Date(t);
-    start.setDate(t.getDate()-t.getDay()+(t.getDay()===6?7:0)); // Sunday of this week; on Saturday, next week
-    $('ph').textContent=t.getDay()===6?'Practice next week':'Practice this week';
+    start.setDate(t.getDate()-t.getDay()); // the week runs Sunday to Saturday, so the screen flips to the new week early Sunday morning (just after midnight)
+    $('ph').textContent='Practice this week';
     var html='',all=[];
     Object.keys(SCHED.PRACTICE).forEach(function(k){var ym=k.split('-');SCHED.PRACTICE[k].forEach(function(x){all.push(new Date(+ym[0],+ym[1],x))})});
     all.sort(function(a,b){return a-b});var first=all[0],last=all[all.length-1];

@@ -66,7 +66,8 @@ If a price changes in the form, change it in the Pay section and the "What does 
 Every Mon/Tue/Thu in January (from Jan 5), February and March is marked as a practice day, except Thu Jan 7 (varsity dual night, no practice). No practice on varsity dual nights.
 
 ## Meets and tournaments
-- Dec 3 and Dec 10: Varsity duals at Stanley High School (high school events; listed so kids come support the team)
+- Dec 3: Varsity dual, away at DLB (Des Lacs-Burlington; moved from home on Nov 24). Still no club practice that night.
+- Dec 10: Varsity dual at Stanley High School (high school events; listed so kids come support the team)
 - Thu Jan 7: Varsity dual and senior night at Stanley High School
 - Dec 30-31: Rumble on Red, Fargo. Only the Individual (Thu Dec 31) is on the payment form: $40, pay online by Thu Dec 3. Weigh-ins Wed Dec 30, 2-6 PM. Online payment closes at midnight going into Dec 4; on Dec 4 the admins register everyone who paid (Tournament sheet, "Rumble on Red" tab) at the tournament's $40 early price; anyone later registers themselves through the tournament (fargorumble.com). Duals (Dec 30) are paid by the club, not parents.
 - Sat Feb 6: Williston Tournament, Williston, ND

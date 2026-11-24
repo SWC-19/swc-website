@@ -12,7 +12,7 @@ window.SWC=(function(){
     '2027-2':[['Beginners','Tue, Thu · 4:00–4:45 PM'],['Advanced girls','Mon 4:00–5:30 PM · Tue, Thu 4:45–6:00 PM'],['Advanced boys','Mon 5:30–7:00 PM · Tue, Thu 6:00–7:15 PM']]};
   // Mon/Tue/Thu during the season with no practice. The club TV shows these as "No practice" with the reason.
   // Key: 'year-month-day' with month numbered from 0 (Nov = 10, Dec = 11, Jan = 0). Use '' when there is no reason to show.
-  var OFF={'2026-10-26':'Thanksgiving','2026-11-3':'Varsity dual night','2026-11-10':'Varsity dual night','2026-11-24':'Christmas Eve','2026-11-29':'','2026-11-31':'Rumble on Red','2027-0-7':'Varsity dual & senior night'};
+  var OFF={'2026-10-26':'Thanksgiving','2026-11-3':'Varsity dual @ DLB','2026-11-10':'Varsity dual night','2026-11-24':'Christmas Eve','2026-11-29':'','2026-11-31':'Rumble on Red','2027-0-7':'Varsity dual & senior night'};
   // The groups and times for one practice day (y, m = month number minus 1, d): [[label, start, end], ...]
   function times(y,m,d){
     if(y===2026)return [['Practice','4:00',(m===11||(m===10&&d>=30))?'5:30':'5:15']];  // 4:00-5:30 from Mon Nov 30

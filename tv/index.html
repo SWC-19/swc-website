@@ -188,7 +188,8 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
       NOTE=v.trim();
     })}
   // Every refresh keeps the last good data if the Wi-Fi or the website is down, so the screen never goes blank.
-  function refresh(){return Promise.all([loadSched().catch(function(){}),loadMeets().catch(function(){}),loadNote().catch(function(){})]).then(render)}
+  // each source draws as soon as it arrives, so a slow Google Sheet never holds up the practice times
+  function refresh(){[loadSched,loadMeets,loadNote].forEach(function(f){f().then(render,function(){})})}
   refresh();
   setInterval(clock,10000);
   setInterval(render,60*1000);            // the day rolls over at midnight

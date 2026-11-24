@@ -144,7 +144,7 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
   // "pay online by Thu, Dec 3" -> "3 days left" / "Last day to pay"
   function deadline(x){var m=x.match(/by\s+\w+,\s+([A-Z][a-z]{2})\w*\s+(\d+)/);if(!m)return '';var mi=MON.indexOf(m[1]);if(mi<0)return '';
     var t=today(),y=t.getFullYear(),d=new Date(y,mi,+m[2]);if(d<t&&t-d>180*864e5)d=new Date(y+1,mi,+m[2]);
-    var n=Math.round((d-t)/864e5);return n<0?'closed':n===0?'Last day to pay':n===1?'1 day left':n+' days left'}
+    var n=Math.round((d-t)/864e5);return n<0?'':n===0?'Last day to pay':n===1?'1 day left':n+' days left'}
   function renderTourn(){
     if(!MEETS)return;
     var t=today();

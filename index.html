@@ -14,6 +14,20 @@
 @media(min-width:821px){section.hero.cs>.in{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:36px;align-items:center}section.hero.cs h1{font-size:clamp(52px,6.4vw,80px)}}
 .hero .wkcard p{color:#2E3648;font-size:15.5px;line-height:1.45;max-width:none;margin:0 0 14px}
 @media(max-width:820px){.wkcard{margin-top:8px}.wkscan{display:none}.wkbtn{display:block}}
+
+/* hero left side: two main buttons, one tidy row of links, note and countdown at the same width */
+.herol{min-width:0}
+.hbtns{display:flex;flex-wrap:wrap;gap:12px;margin:4px 0 14px;max-width:600px}
+.hb{flex:1 1 auto;white-space:nowrap;display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:10px 24px;border-radius:999px;background:#fff;color:#0B4BB5;font-weight:700;font-size:17px;text-decoration:none;line-height:1.2}
+.hb.red{background:#C8102E;color:#fff}
+.hlinks{list-style:none;margin:0 0 20px;padding:0;display:flex;flex-wrap:wrap;gap:6px 0;max-width:600px}
+.hlinks li{display:flex;align-items:center}
+.hlinks li+li:before{content:"";width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.55);margin:0 12px}
+.hlinks a{color:#fff;font-size:15px;text-decoration:underline;text-decoration-color:rgba(255,255,255,.45);text-underline-offset:3px;overflow-wrap:anywhere}
+section.hero.cs .herol p.redo{box-sizing:border-box;max-width:600px;margin:0 0 14px;font-size:15px}
+.herol .count{display:flex;max-width:600px;margin-top:0;box-sizing:border-box}
+@media(min-width:821px){section.hero.cs>.in{align-items:start}.wkcard{margin-top:34px}}
+@media(max-width:520px){.hb{flex:1 1 100%;white-space:normal}}
 </style></head><body><title>Stanley Wrestling Club</title>
 <meta name="description" content="Stanley Wrestling Club: youth wrestling in Stanley, North Dakota. Registration, schedule and parent info.">
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -213,11 +227,13 @@ html,body{overflow-x:clip;max-width:100%}
 </div></header>
 
 <section id="top" class="hero cs"><div class="in">
-  <div>
+  <div class="herol">
     <span class="kick">Stanley, North Dakota · Youth wrestling</span>
     <h1>Registration<br>is open.</h1>
     <p>One form per family, about 10 minutes. Have your USA Wrestling number, each wrestler's weight and an emergency contact ready.</p>
-    <div class="chips"><a class="chip red" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register now</a><a class="chip" href="/dues" target="_blank" rel="noopener">Already registered? Pay dues</a><a class="chip" href="https://heja.io" target="_blank" rel="noopener">Join Heja · team code GR986946</a><a class="chip" href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Follow on Facebook</a><a class="chip" href="mailto:stanleywrestlingclub@gmail.com">stanleywrestlingclub@gmail.com</a></div><p class="redo"><b>Signed up for preseason on our earlier form?</b> Please register once more using the button above. That one's on us, and we're sorry for asking twice. Check the Preseason box on the form.</p>
+    <div class="hbtns"><a class="hb red" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register now</a><a class="hb" href="/dues" target="_blank" rel="noopener">Already registered? Pay dues</a></div>
+    <ul class="hlinks"><li><a href="https://heja.io" target="_blank" rel="noopener">Heja team code <b>GR986946</b></a></li><li><a href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Facebook</a></li><li><a href="mailto:stanleywrestlingclub@gmail.com">stanleywrestlingclub@gmail.com</a></li></ul>
+    <p class="redo"><b>Signed up for preseason on our earlier form?</b> Please register once more using the button above. That one's on us, and we're sorry for asking twice. Check the Preseason box on the form.</p>
     <div class="count" id="count"><span>Preseason starts Monday, Nov 9 at 4:00 PM</span></div>
   </div>
   <aside class="wkcard" aria-label="This week at SWC">

@@ -54,7 +54,8 @@ h2{margin:0 0 2.4vh;font-family:var(--display);font-weight:800;text-transform:up
 .nwr .t{flex:1;display:flex;flex-wrap:wrap;gap:.2vh 1.8vw}
 .nwr .t b{font-weight:600;color:var(--muted);text-transform:uppercase;margin-right:.5vw}
 .nwr.off .t{color:var(--muted);font-weight:600}
-body.tightL .day{padding:.9vh 1.6vw}body.tightL .day .tm div{font-size:3.9vh}body.tightL .day .dt em{font-size:5.8vh}body.tightL .days{gap:1.2vh}body.tightL h2{margin-bottom:1.4vh}
+body.tightL .day{padding:.6vh 1.6vw}body.tightL .day .tm div{font-size:3.5vh}body.tightL .day .dt em{font-size:5vh}body.tightL .day .dt span{font-size:2.4vh}body.tightL .days{gap:1vh}body.tightL h2{margin-bottom:1.2vh;font-size:4.6vh}body.tightL .tag{font-size:1.8vh;margin-top:.4vh}
+body.tightA .addr{font-size:2.2vh;line-height:1.3}
 body.tight .nw{margin-top:1.4vh}body.tight .nwr{font-size:2.8vh;padding:.4vh 1vw}
 
 .tn{background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:1.6vh 1.6vw;margin-bottom:1.6vh}
@@ -180,17 +181,21 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
   // On the TV everything must fit on one screen. "Next week" goes under this week's practices if there's room,
   // otherwise under the tournament; if it still doesn't fit it gets smaller, and as a last resort it is left
   // off the TV (phones always show it, under this week).
-  function fit(){fit0();if(!window.matchMedia('(max-width:900px),(max-aspect-ratio:1/1)').matches)fitL()}
-  function fit0(){var b=document.body,n=$('nw'),L=$('days').parentNode,R=$('tourn').parentNode;
-    b.classList.remove('tight','tightL');n.classList.remove('hide');L.insertBefore(n,L.querySelector('.addr'));
-    if(window.matchMedia('(max-width:900px),(max-aspect-ratio:1/1)').matches||!n.innerHTML)return;
-    var over=function(c){return c.scrollHeight>c.clientHeight+2};
-    if(!over(L))return;
-    R.appendChild(n);if(!over(R))return;
-    b.classList.add('tight');L.insertBefore(n,L.querySelector('.addr'));if(!over(L))return;
-    R.appendChild(n);if(!over(R))return;
-    n.classList.add('hide')}
-  function fitL(){var L=$('days').parentNode;if(L.scrollHeight>L.clientHeight+2)document.body.classList.add('tightL')}
+  // On the TV everything must fit on one screen (a notice in the red bar takes room too). "Next week" goes under
+  // this week's practices if there's room, otherwise under the tournament. If it fits in neither, things get a bit
+  // smaller step by step (next-week list, then the practice cards, then the address line) and it tries again.
+  // Only if it still doesn't fit is it left off the TV. Phones always show it, under this week.
+  function fit(){var b=document.body,n=$('nw'),L=$('days').parentNode,R=$('tourn').parentNode,lv=['tight','tightL','tightA'];
+    lv.forEach(function(c){b.classList.remove(c)});n.classList.remove('hide');
+    var left=function(){L.insertBefore(n,L.querySelector('.addr'))},over=function(c){return c.scrollHeight>c.clientHeight+2};
+    left();
+    if(window.matchMedia('(max-width:900px),(max-aspect-ratio:1/1)').matches)return;
+    if(!n.innerHTML){if(over(L))lv.forEach(function(c){if(over(L))b.classList.add(c)});return}
+    for(var i=0;i<=lv.length;i++){
+      if(i)b.classList.add(lv[i-1]);
+      left();if(!over(L))return;
+      R.appendChild(n);if(!over(R)&&!over(L))return}
+    n.classList.add('hide');left()}
   // ---- next tournament (from the homepage "Meets & tournaments" list) ----
   function when(x){var p=x.split(' · ').filter(function(s){return /\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)|\d ?(AM|PM)|, [A-Z]{2}\b/.test(s)});return (p.length?p:[x]).join(' · ')}
   // "pay online by Thu, Dec 3" -> "3 days left" / "Last day to pay"

@@ -34,7 +34,7 @@ Live at https://stanleywrestlingclub.org (domain bought on Cloudflare; DNS: four
   - If a tournament is added to the form, Tally adds new columns to Sheet1 and the tournament tabs need updating.
 - **Coach check-in form:** https://tally.so/r/QoK1qk
 - **Team messages:** the Heja app (team code GR986946) and the Facebook page facebook.com/stanleywrestlingclub
-- **Coaches:** John Batteiger (head coach), Jake Carpenter, Matt Ruland, Dusty Fladeland, Chandler Meiers, Rocky Fladeland, Jay Sorenson. Headshots in `photos/coaches/` were cut from the team photo (`photos/site/photo-28.jpg`); swap in sharper photos with the same file names any time.
+- **Coaches:** John Batteiger (head coach), Jake Carpenter, Matt Ruland, Dusty Fladeland, Chandler Meiers, Rocky Fladeland, Jay Sorenson, Trevor Parsons, Beau Vachal. Headshots in `photos/coaches/` were cut from the team photo (`photos/site/photo-28.jpg`); swap in sharper photos with the same file names any time.
 - **Club email:** stanleywrestlingclub@gmail.com
 - **Practice location:** 104 S Main St, Stanley, ND 58784. Practice is drop-off only.
 

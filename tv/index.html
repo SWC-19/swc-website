@@ -44,6 +44,19 @@ h2{margin:0 0 2.4vh;font-family:var(--display);font-weight:800;text-transform:up
 .tn .wi{font-size:3vh;margin-top:.8vh;font-weight:700;color:#FFE28A}
 .tn .left{display:inline-block;margin-left:.6vw;background:var(--red);color:#fff;border-radius:99vh;padding:.1vh .8vw;font-size:2.8vh}
 .col{display:flex;flex-direction:column;min-height:0}
+.nw{margin-top:2.4vh}
+.col>.nw:last-child{margin-top:.8vh}
+.nw h3{margin:0 0 1vh;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:3.4vh;letter-spacing:.04em;color:var(--muted)}
+.nwr{display:flex;gap:1.6vw;align-items:baseline;padding:.8vh 1.2vw;border-bottom:1px solid var(--line);font-family:var(--display);font-weight:800;font-size:3.4vh;line-height:1.15}
+.nwr:last-child{border-bottom:0}
+.nwr .d{flex:none;width:15vh;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.nw.hide{display:none}
+.nwr .t{flex:1;display:flex;flex-wrap:wrap;gap:.2vh 1.8vw}
+.nwr .t b{font-weight:600;color:var(--muted);text-transform:uppercase;margin-right:.5vw}
+.nwr.off .t{color:var(--muted);font-weight:600}
+body.tightL .day{padding:.9vh 1.6vw}body.tightL .day .tm div{font-size:3.9vh}body.tightL .day .dt em{font-size:5.8vh}body.tightL .days{gap:1.2vh}body.tightL h2{margin-bottom:1.4vh}
+body.tight .nw{margin-top:1.4vh}body.tight .nwr{font-size:2.8vh;padding:.4vh 1vw}
+
 .tn{background:var(--panel);border:1px solid var(--line);border-radius:1.4vh;padding:1.6vh 1.6vw;margin-bottom:1.6vh}
 .tn .nm{font-family:var(--display);font-weight:800;font-size:4.4vh;line-height:1.05}
 .tn .when{font-size:3vh;margin-top:.6vh}
@@ -90,6 +103,9 @@ body.hasnote .qr svg{width:18vh;height:18vh}
   .tn .nm{font-size:22px}
   .tn .when,.tn .wi,.tn .pay,.tn .free{font-size:16px}
   .tn .left{font-size:13px;padding:1px 8px}
+  .nw h3{font-size:16px}
+  .nwr,body.tight .nwr{font-size:17px;padding:8px 10px;gap:12px}
+  .nwr .d{width:64px}
   .qr{display:none}
   .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
   .btn{display:inline-block;padding:10px 16px;border-radius:99px;background:#26324F;color:#fff;font-weight:700;font-size:16px;text-decoration:none}
@@ -100,7 +116,7 @@ body.hasnote .qr svg{width:18vh;height:18vh}
 <div class="top"><img src="/handbook/logo.png" alt=""><div class="club">Stanley Wrestling Club</div><div class="clock" id="clock"></div></div>
 <div class="notice" id="notice" hidden><small>NOTICE</small><span id="noticeTxt"></span></div>
 <div class="main">
-  <div class="col"><h2 id="ph">Practice this week</h2><div class="days" id="days"></div><div class="addr">104 S Main St, Stanley · Drop off 5 minutes before practice, pick up on time<br>Team news is on the Heja app · team code <b>GR986946</b></div></div>
+  <div class="col"><h2 id="ph">Practice this week</h2><div class="days" id="days"></div><div class="nw" id="nw"></div><div class="addr">104 S Main St, Stanley · Drop off 5 minutes before practice, pick up on time<br>Team news is on the Heja app · team code <b>GR986946</b></div></div>
   <div class="col"><h2 id="th">Next tournament</h2><div id="tourn"></div>
   </div>
 </div>
@@ -143,7 +159,38 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
         rows.map(function(r){return '<div><b>'+(r[0]==='Practice'?'':r[0])+'</b><span>'+r[1]+'–'+r[2]+' PM</span></div>'}).join('')+'</div></div>';
     }
     $('days').innerHTML=html||'<div class="none">No practice this week. Watch Heja for updates.</div>';
+    // next week: one short line per day, so parents can plan ahead
+    var nw='';
+    for(var j=7;j<14;j++){
+      var e=new Date(start);e.setDate(start.getDate()+j);
+      var l2=SCHED.PRACTICE[e.getFullYear()+'-'+e.getMonth()]||[],w2=e.getDay(),lbl=DAYS[w2]+' '+e.getDate();
+      if(l2.indexOf(e.getDate())<0){
+        if((w2===1||w2===2||w2===4)&&e>=first&&e<=last){var why2=(SCHED.OFF||{})[e.getFullYear()+'-'+e.getMonth()+'-'+e.getDate()]||'';
+          nw+='<div class="nwr off"><span class="d">'+lbl+'</span><span class="t">No practice'+(why2?' · '+why2:'')+'</span></div>'}
+        continue}
+      nw+='<div class="nwr"><span class="d">'+lbl+'</span><span class="t">'+SCHED.times(e.getFullYear(),e.getMonth(),e.getDate()).map(function(r){
+        return '<span>'+(r[0]==='Practice'?'':'<b>'+r[0]+'</b>')+r[1]+'–'+r[2]+'</span>'}).join('')+'</span></div>';
+    }
+    var s0=new Date(start);s0.setDate(start.getDate()+7);
+    var nwh=nw?'<h3>Next week · starts '+MON[s0.getMonth()]+' '+s0.getDate()+'</h3>'+nw:'';
+    $('nw').innerHTML=nwh;
+    fit();
   }
+  // On the TV everything must fit on one screen: if it doesn't, shrink the practice cards a little.
+  // On the TV everything must fit on one screen. "Next week" goes under this week's practices if there's room,
+  // otherwise under the tournament; if it still doesn't fit it gets smaller, and as a last resort it is left
+  // off the TV (phones always show it, under this week).
+  function fit(){fit0();if(!window.matchMedia('(max-width:900px),(max-aspect-ratio:1/1)').matches)fitL()}
+  function fit0(){var b=document.body,n=$('nw'),L=$('days').parentNode,R=$('tourn').parentNode;
+    b.classList.remove('tight','tightL');n.classList.remove('hide');L.insertBefore(n,L.querySelector('.addr'));
+    if(window.matchMedia('(max-width:900px),(max-aspect-ratio:1/1)').matches||!n.innerHTML)return;
+    var over=function(c){return c.scrollHeight>c.clientHeight+2};
+    if(!over(L))return;
+    R.appendChild(n);if(!over(R))return;
+    b.classList.add('tight');L.insertBefore(n,L.querySelector('.addr'));if(!over(L))return;
+    R.appendChild(n);if(!over(R))return;
+    n.classList.add('hide')}
+  function fitL(){var L=$('days').parentNode;if(L.scrollHeight>L.clientHeight+2)document.body.classList.add('tightL')}
   // ---- next tournament (from the homepage "Meets & tournaments" list) ----
   function when(x){var p=x.split(' · ').filter(function(s){return /\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun)|\d ?(AM|PM)|, [A-Z]{2}\b/.test(s)});return (p.length?p:[x]).join(' · ')}
   // "pay online by Thu, Dec 3" -> "3 days left" / "Last day to pay"
@@ -172,8 +219,9 @@ var NOTICE_CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5rfuQQlWOyh8dX
       info+=btns?'<div class="btns">'+btns+'</div>':'';
       return canPay?'<div class="tn paycard"><div class="info">'+info+'</div><div class="qr">'+QR+'<b>Scan to pay</b></div></div>':'<div class="tn">'+info+'</div>'}).join('')
       :'<div class="none">No tournaments coming up. Watch Heja for updates.</div>';
+    fit();
   }
-  function renderNote(){$('noticeTxt').textContent=NOTE;$('notice').hidden=!NOTE;document.body.classList.toggle('hasnote',!!NOTE)}
+  function renderNote(){$('noticeTxt').textContent=NOTE;$('notice').hidden=!NOTE;document.body.classList.toggle('hasnote',!!NOTE);fit()}
   function render(){clock();renderDays();renderTourn();renderNote()}
 
   function loadSched(){return get('/schedule.js').then(function(js){var w={};new Function('window',js)(w);if(w.SWC&&w.SWC.times)SCHED=w.SWC})}

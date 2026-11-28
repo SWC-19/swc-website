@@ -235,8 +235,7 @@ html,body{overflow-x:clip;max-width:100%}
     <p>One form per family, about 10 minutes. Have your USA Wrestling number, each wrestler's weight and an emergency contact ready.</p>
     <div class="hbtns"><a class="hb red" href="https://tally.so/r/7Xq0xA" target="_blank" rel="noopener">Register now</a><a class="hb" href="/dues" target="_blank" rel="noopener">Already registered? Pay dues</a></div>
     <ul class="hlinks"><li><a href="https://heja.io" target="_blank" rel="noopener">Heja team code <b>GR986946</b></a></li><li><a href="https://www.facebook.com/stanleywrestlingclub/" target="_blank" rel="noopener">Facebook</a></li><li><a href="mailto:stanleywrestlingclub@gmail.com">stanleywrestlingclub@gmail.com</a></li></ul>
-    <p class="redo"><b>Signed up for preseason on our earlier form?</b> Please register once more using the button above. That one's on us, and we're sorry for asking twice. Check the Preseason box on the form.</p>
-    <div class="count" id="count"><span>Preseason starts Monday, Nov 9 at 4:00 PM</span></div>
+    <div class="count" id="count"><span>Next up: Rumble on Red, Fargo · Dec 30–31</span></div>
   </div>
   <aside class="wkcard" aria-label="For parents">
     <span class="wkk">For parents</span>
@@ -434,7 +433,7 @@ html,body{overflow-x:clip;max-width:100%}
 <script>
 (function(){
   var CAL_MONTHS=[[2026,10],[2026,11],[2027,0],[2027,1],[2027,2]];
-  // Calendar events. The countdown at the top of the page counts down to the next one.
+  // Calendar events. The countdown at the top of the page counts down to the next one (varsity duals are skipped).
   // m is the month number minus 1 (Jan=0 ... Dec=11). e is the last day for events that run more than one day.
   // c is the color: s = season starts, d = varsity dual, r = tournament, k = deadline.
   var EVENTS=[
@@ -500,7 +499,7 @@ html,body{overflow-x:clip;max-width:100%}
   var n=new Date(),t=new Date(n.getFullYear(),n.getMonth(),n.getDate()),nx=list.filter(function(x){return x>=t})[0];
   if(nx){document.getElementById('np-m').textContent=M[nx.getMonth()];document.getElementById('np-d').textContent=nx.getDate();document.getElementById('np-t').textContent=D[nx.getDay()]+', '+MN[nx.getMonth()]+' '+nx.getDate()+' · '+ptimes(nx)}
   else{document.getElementById('np-m').textContent=M[t.getMonth()];document.getElementById('np-d').textContent='–';document.getElementById('np-t').textContent='Next practice days will be posted soon'}
-  var el=document.getElementById('count'),up=EVENTS.map(function(e){return {e:e,a:new Date(e.y,e.m,e.d),z:new Date(e.y,e.m,e.e||e.d)}}).filter(function(x){return x.z>=t}).sort(function(p,q){return p.a-q.a})[0];
+  var el=document.getElementById('count'),up=EVENTS.filter(function(e){return e.c!=='d'}).map(function(e){return {e:e,a:new Date(e.y,e.m,e.d),z:new Date(e.y,e.m,e.e||e.d)}}).filter(function(x){return x.z>=t}).sort(function(p,q){return p.a-q.a})[0];
   if(up){
     var cd=Math.round((up.a-t)/86400000),when=D[up.a.getDay()]+', '+MN[up.a.getMonth()]+' '+up.e.d+(up.e.e?'–'+up.e.e:'');
     if(cd>1)el.innerHTML='<b>'+cd+'</b><span>days until '+esc(up.e.t)+' · '+when+'</span>';

@@ -151,6 +151,7 @@ Each folder holds a tiny page that forwards straight to the Tally form, so print
 | stanleywrestlingclub.org/dues | Pay Dues (tally.so/r/yXMWKp) |
 | stanleywrestlingclub.org/tournaments | Tournament entries (tally.so/r/YjP8xB) |
 | stanleywrestlingclub.org/results | Tournament results: parents report place, pins and record (tally.so/r/YjaVbv, "Tournament Results 2026-27"). Wrestler drop-downs list registered kids only (no guests); add new registrations to all 4 name lists. |
+| stanleywrestlingclub.org/guide | Parent Quick Guide PDF (flyers/SWC-Parent-Quick-Guide.pdf): practice times, dues, tournament steps, results QR, key dates. Same file to email or print. |
 | stanleywrestlingclub.org/coaches | Coach Check-In (tally.so/r/VpG7Jv) |
 
 Anything after a `?` is passed along to the form (for pre-filled links).

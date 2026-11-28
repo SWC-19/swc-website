@@ -121,6 +121,8 @@ The old preview address (/preview-d4597c3d/) now just forwards to the live site.
 The Tally forms (Registration, Pay Dues, Tournament) are open.
 
 ## Tournament payment form: per-tournament prices
+
+**Pay-by rule (coach, Nov 28):** the deadline to pay and click Going on Heja is the **Monday before** each tournament. When a flyer and fee come in, the website line reads "Pay and click Going on Heja by Monday, [date]". Rumble on the Red keeps its own Dec 3 date. Pay buttons stay up after the deadline (late payers are registered by hand).
 - Each tournament is one checkbox per wrestler (4 wrestlers) and adds its own price through a CALCULATE rule on the total.
 - Each checkbox shows a picture. Full flyers are too small to read on a phone, so the form uses a simple card per tournament (logo + name + date + place, no price because prices can change): `flyers/<tournament>-card.jpg` (Rumble: `rumble-on-the-red-card2.jpg`; use a new file name when a card changes so phones don't show the old cached one), built at 1200x800. The full flyer (`flyers/<tournament>.jpg`, rendered sharp from the PDF) is linked from the website schedule as "See the flyer".
 - Finished tournaments drop off (user decision Nov 10): on the website each tournament row has `data-end="YYYY-MM-DD"` (its last day; March TBD ones (Tioga, Stanley, Grenora) use Mar 31) and a small script hides it the day after. On the payment form, each tournament closes at its pay-by date.
